@@ -1,0 +1,78 @@
+{
+"ID":"16584254581",
+"Name":"ToToRo",
+"Cycle":8,
+"Level":"VIP",
+"ApplicationType":"Calculation",
+"BillType":"Month",
+"Prepaid":true,
+"Amount":5000,
+"Instance":5,
+"ReservedInstance":5,
+"Resource Request":
+          [
+                {"CPU":[{"cores":10,"Frequency":2.2,"Methord":"Form"}]},
+		{"MEM":[{"size":100,"Methord":"Form"}]},
+		{"NET":[{"size":"10MB","Methord":"bandWidth"}]},
+                {"IO":[{"size":"50G","Methord":"capacity"}]}
+          ],
+"Rough dailyBill":
+         [
+         	{"days":[{
+                	"1":120,
+                	"2":140,
+                	"3":150,
+                	"4":190,
+               	 	"5":34,
+                	"6":90,
+                	"7":80,
+               	 	"8":78,
+                	"9":78,
+                	"10":12,
+                	"11":15,
+                	"12":160,
+                	"13":190,
+                	"14":140,
+                	"15":100,
+                	"16":100,
+                	"17":70,
+                	"18":67,
+                	"19":200,
+                	"20":200,
+                	"21":78,
+                	"22":89,
+                	"23":90,
+                	"24":90,
+                	"25":190,
+                	"26":110,
+                	"27":90,
+                	"28":80,
+                	"29":100,
+                	"30":100,
+                	"31":120
+                	}]},
+         	{"total":3400}
+         ],
+"Resource Usage":
+          [
+                {"CPU":0.4,
+                "MEM":0.3,
+                "NET":0.8,
+                "IO":0.7}
+          ],
+"Service Usage":
+         [
+                {"Docker Registry":5,
+                "Load Average":10000,
+                "Data Backup":1,
+                "Service Billing":30}
+         ],
+"Discount":
+        [
+                {"Type1":"Year",
+                "Type2":"NewCustomer",
+                "Type3":"XXX"},
+		{"Discount Sum":1200}
+        ],
+"Total Billing":2200
+}
