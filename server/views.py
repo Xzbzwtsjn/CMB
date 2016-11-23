@@ -14,7 +14,7 @@ class Views:
         self.url_map.append(Rule("/monthlyBill", endpoint='getMonbill'))
         self.url_map.append(Rule("/api/monthlyBill", endpoint='api_getMonbill'))
         self.url_map,append(Rule("/dailyBill", endpoint='getDailybill'))
-	self.url_map,append(Rule("/api/dailyBill", endpoint='api_getDailybill'))
+	self.url_map.append(Rule("/api/dailyBill", endpoint='api_getDailybill'))
         self.url_map.append(Rule("/getMachine", endpoint = 'getMachine'))
 	self.url_map.append(Rule("/api/getMachine", endpoint = 'api_getMachine'))
         self.url_map.append(Rule("/updatePolicy", endpoint = 'updatePolicy'))
