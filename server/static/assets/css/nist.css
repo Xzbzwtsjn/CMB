@@ -1,0 +1,124 @@
+.nist-table{
+	border:solid #ddd; 
+	border-width:1px 0px 0px 1px;
+}
+.nist-table > tbody > tr > td{
+	border:solid #ddd;
+	border-width:0px 1px 1px 0px;
+}
+.breadcrumb>li>a{
+	color: #3e94fe;
+}
+.logo-brand>a{
+	color: #3e94fe;
+	text-decoration: none;
+}
+/**=================================NAV =====================================**/
+.top-navbar {
+	position: fixed;
+	height: 60px;
+	top: 0;
+	left: 0;
+	right: 0;
+	background: #fff;
+	z-index: 1024;
+	-webkit-transition: All 0.3s ease;
+	-moz-transition: All 0.3s ease;
+	-o-transition: All 0.3s ease;
+}
+
+.nist-logo-brand {
+	width: 250px;
+	line-height: 3.0;
+	border-radius: 2px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	font-size: 20px;
+	font-weight: 700;
+	padding: 0;
+	text-align: center;
+	color: #fff;
+}
+.nist-logo-brand a{
+	color: #000;
+}
+.nist-logo-brand a:hover{
+	text-decoration: none;
+}
+.nist-logo-brand img {
+	width: auto;
+	max-width: 160px;
+}
+.nist-logo-brand.white-color {
+	background: #fff;
+	color: #434A54;
+}
+.nist-logo-brand.primary-color {
+	background: #34BC9B;
+	color: #fff;
+}
+.nist-logo-brand.success-color {
+	background: #8EC051;
+	color: #fff;
+}
+.nist-logo-brand.info-color {
+	background: #3EAFDB;
+	color: #fff;
+}
+.nist-logo-brand.danger-color {
+	background: #E7573E;
+	color: #fff;
+}
+.nist-logo-brand.warning-color {
+	background: #F6BB43;
+	color: #fff;
+}
+.nist-navbar-nav {
+	margin: 7.5px -15px
+}
+.nist-navbar-nav>li>a {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	line-height: 20px
+}
+
+/**================================SideBar=======================================**/
+.nist-sidebar-left {
+	position: fixed;
+	top: 60px;
+	left: 0;
+	bottom: 0;
+	width: 250px;
+	color: #AAB2BD;
+	z-index: 10;
+	-webkit-transition: All 0.3s ease;
+	-moz-transition: All 0.3s ease;
+	-o-transition: All 0.3s ease;
+}
+/**=================================Button Design=================================**/
+
+.nist-btn-sm, .nist-btn-group-sm>.nist-btn {
+	padding: 0px 10px;
+	font-size: 12px;
+	line-height: 2.0;
+	border-radius: 2px
+}
+.nist-btn-md, .nist-btn-group-md>.nist-btn {
+	padding: 0px 10px;
+	font-size: 14px;
+	line-height: 2.0;
+	border-radius: 2px
+}
+.nist-btn-lg, .nist-btn-group-lg>.nist-btn {
+	padding: 0px 15px;
+	font-size: 14px;
+	line-height: 2.14;
+	border-radius: 2px
+}
+.nist-btn-xl, .nist-btn-group-xl>.nist-btn {
+	padding: 0px 20px;
+	font-size: 14px;
+	line-height: 2.43;
+	border-radius: 2px
+}

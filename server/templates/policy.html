@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Sentir, Responsive admin and dashboard UI kits template">
+		<meta name="keywords" content="admin,bootstrap,template,responsive admin,dashboard template,web apps template">
+		<meta name="author" content="Ari Rusmanto, Isoh Design Studio, Warung Themes">
+		<title>SENTIR - Responsive admin and dashboard UI kits template</title>
+ 
+
+		<!-- BOOTSTRAP CSS (REQUIRED ALL PAGE)-->
+		<link href="static/assets/css/bootstrap.min.css" rel="stylesheet">
+		
+		<!-- PLUGINS CSS -->
+		<link href="static/assets/plugins/weather-icon/css/weather-icons.min.css" rel="stylesheet">
+		<link href="static/assets/plugins/prettify/prettify.min.css" rel="stylesheet">
+		<link href="static/assets/plugins/magnific-popup/magnific-popup.min.css" rel="stylesheet">
+		<link href="static/assets/plugins/owl-carousel/owl.carousel.min.css" rel="stylesheet">
+		<link href="static/assets/plugins/owl-carousel/owl.theme.min.css" rel="stylesheet">
+		<link href="static/assets/plugins/owl-carousel/owl.transitions.min.css" rel="stylesheet">
+		<link href="static/assets/plugins/chosen/chosen.min.css" rel="stylesheet">
+		<link href="static/assets/plugins/icheck/skins/all.css" rel="stylesheet">
+		<link href="static/assets/plugins/datepicker/datepicker.min.css" rel="stylesheet">
+		<link href="static/assets/plugins/timepicker/bootstrap-timepicker.min.css" rel="stylesheet">
+		<link href="static/assets/plugins/validator/bootstrapValidator.min.css" rel="stylesheet">
+		<link href="static/assets/plugins/summernote/summernote.min.css" rel="stylesheet">
+		<link href="static/assets/plugins/markdown/bootstrap-markdown.min.css" rel="stylesheet">
+		<link href="static/assets/plugins/datatable/css/bootstrap.datatable.min.css" rel="stylesheet">
+		<link href="static/assets/plugins/morris-chart/morris.min.css" rel="stylesheet">
+		<link href="static/assets/plugins/c3-chart/c3.min.css" rel="stylesheet">
+		<link href="static/assets/plugins/slider/slider.min.css" rel="stylesheet">
+		<link href="static/assets/plugins/salvattore/salvattore.css" rel="stylesheet">
+		<link href="static/assets/plugins/toastr/toastr.css" rel="stylesheet">
+		<link href="static/assets/plugins/fullcalendar/fullcalendar/fullcalendar.css" rel="stylesheet">
+		<link href="static/assets/plugins/fullcalendar/fullcalendar/fullcalendar.print.css" rel="stylesheet" media="print">
+		
+		<!-- MAIN CSS (REQUIRED ALL PAGE)-->
+		<link href="static/assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+		<link href="static/assets/css/style.css" rel="stylesheet">
+		<link href="static/assets/css/style-responsive.css" rel="stylesheet">
+		<link href="static/assets/css/nist.css" rel="stylesheet">
+ 
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+ 
+	<body class="tooltips">
+		<!--
+		===========================================================
+		BEGIN PAGE
+		===========================================================
+		-->
+		<div class="wrapper">
+			<!-- BEGIN TOP NAV -->
+			<div class="top-navbar">
+				<div class="top-navbar-inner">
+					
+					<!-- Begin Logo brand -->
+					<div class="logo-brand">
+						<a href="index.html">计量计费系统</a>
+					</div><!-- /.logo-brand -->
+					<!-- End Logo brand -->
+					
+					<div class="top-nav-content">
+						<ul class="nav navbar-nav">
+					        <li><a href="search.html">首页</a></li>
+					        <li><a href="search.html">账单查询</a></li>
+					        <li><a href="resources.html">资源状态</a></li>
+					        <li><a href="policy.html">计费规则</a></li>
+					    </ul>
+						
+						 <ul class="nav navbar-nav navbar-right">
+					        <li class="dropdown">
+					          <a href="#" class="dropdown-toggle" data-toggle="dropdown">xtzhao&nbsp;<span class="fa fa-angle-down"></span></a>
+					          <ul class="dropdown-menu" role="menu">
+					            <li><a href="#">Action</a></li>
+					            <li><a href="#">Another action</a></li>
+					            <li><a href="#">Something else here</a></li>
+					            <li class="divider"></li>
+					            <li><a href="#">Separated link</a></li>
+					          </ul>
+					        </li>
+					      </ul>
+
+					</div><!-- /.top-nav-content -->
+				</div><!-- /.top-navbar-inner -->
+			</div><!-- /.top-navbar -->
+			<!-- END TOP NAV -->		
+			
+			<!-- BEGIN PAGE CONTENT -->
+			<div class="page-content">
+				<div class="container-fluid">
+					
+					<ol class="breadcrumb default" style="margin-top:20px;">
+					  <li class="active">我的位置</a></li>
+					  <li><a href="search.html">首页</a></li>
+					  <li class="active">计费规则</li>
+					</ol>
+
+					<div class="panel panel-info">
+					  <div class="panel-heading">
+						<h3 class="panel-title">计费规则</h3>
+					  </div>
+					  <div class="panel-body">
+					  		<div class="row">
+					  			<div class="col-sm-1"></div>
+					  			<div class="col-sm-10">
+					  				<h3>收费一览表</h3>
+					  			</div>
+					  			<div class="col-sm-1"></div>
+					  		</div>
+							<div class="row">
+					  			<div class="col-sm-1"></div>
+					  			<div class="col-sm-10">
+					  				<table class="nist-table table text-center" style="margin-top:20px;">
+										<tr>
+											<td colspan="7"><h4>云平台收费一览表</h4></td>
+										</tr>
+										<tr>
+											<td colspan="7"><h5>计算资源</h5></td>
+										</tr>
+										<tr>
+											<td>计算资源价格（每小时K）</td>
+											<td>基础价格（CPU_Price）</td>
+											<td colspan="2">CPU(核)</td>
+											<td colspan="2">内存（G）</td>
+										</tr>
+										<tr>
+											<td>0.1</td>
+											<td>10</td>
+											<td colspan="2">1</td>
+											<td colspan="2">1</td>
+										</tr>
+										<tr>
+											<td>0.1</td>
+											<td>10</td>
+											<td colspan="2">1</td>
+											<td colspan="2">1</td>
+										</tr>
+										<tr>
+											<td>0.1</td>
+											<td>10</td>
+											<td colspan="2">1</td>
+											<td colspan="2">1</td>
+										</tr>
+										<tr>
+											<td>0.1</td>
+											<td>10</td>
+											<td colspan="2">1</td>
+											<td colspan="2">1</td>
+										</tr>
+										<tr>
+											<td>0.1</td>
+											<td>10</td>
+											<td colspan="2">1</td>
+											<td colspan="2">1</td>
+										</tr>
+										<tr>
+											<td colspan="7"><h5>存储资源</h5></td>
+										</tr>
+										<tr>
+											<td>按月（Disk_Price）</td>
+											<td>按量（Q）</td>
+											<td>类型</td>
+											<td>规格</td>
+											<td>磁盘项目</td>
+											<td>地区</td>
+										</tr>
+										<tr>
+											<td>45</td>
+											<td>0.05</td>
+											<td>普通</td>
+											<td>40G</td>
+											<td>系统盘</td>
+											<td>华北</td>
+										</tr>
+										<tr>
+											<td>45</td>
+											<td>0.05</td>
+											<td>普通</td>
+											<td>40G</td>
+											<td>系统盘</td>
+											<td>华北</td>
+										</tr>
+										<tr>
+											<td>45</td>
+											<td>0.05</td>
+											<td>普通</td>
+											<td>40G</td>
+											<td>系统盘</td>
+											<td>华北</td>
+										</tr>
+										<tr>
+											<td>45</td>
+											<td>0.05</td>
+											<td>普通</td>
+											<td>40G</td>
+											<td>系统盘</td>
+											<td>华北</td>
+										</tr>
+										<tr>
+											<td colspan="7"><h5>网络资源</h5></td>
+										</tr>
+										<tr>
+											<td>基础价格(Net_Price)</td>
+											<td>计费方式</td>
+											<td>规格</td>
+											<td>单位</td>
+											<td colspan="2">网络项目</td>
+										</tr>
+										<tr>
+											<td>20.7</td>
+											<td>包月</td>
+											<td>1Mbps</td>
+											<td>元/1Mbps/月</td>
+											<td colspan="2">公网</td>
+										</tr>
+										<tr>
+											<td>20.7</td>
+											<td>包月</td>
+											<td>1Mbps</td>
+											<td>元/1Mbps/月</td>
+											<td colspan="2">公网</td>
+										</tr>
+										<tr>
+											<td>20.7</td>
+											<td>包月</td>
+											<td>1Mbps</td>
+											<td>元/1Mbps/月</td>
+											<td colspan="2">公网</td>
+										</tr>
+										<tr>
+											<td colspan="6">总计=(CPU_Price + K*hour)+ (Disk_Price + Q*hour)+(Net_Price & pre*IO)</td>
+										</tr>
+									</table>
+					  			</div>
+					  			<div class="col-sm-1"></div>
+					  		</div>
+							
+					  </div><!-- /.panel-body -->
+					</div>
+				</div><!-- /.container-fluid -->
+				
+				
+				
+				<!-- BEGIN FOOTER -->
+				<footer>
+					&copy; 2016 <a href="#fakelink">nisc</a><br />
+				</footer>
+				<!-- END FOOTER -->
+				
+				
+			</div><!-- /.page-content -->
+		</div><!-- /.wrapper -->
+		<!-- END PAGE CONTENT -->
+		
+		
+	
+		<!-- BEGIN BACK TO TOP BUTTON -->
+		<div id="back-top">
+			<a href="#top"><i class="fa fa-chevron-up"></i></a>
+		</div>
+		<!-- END BACK TO TOP -->
+		
+		
+		<!--
+		===========================================================
+		END PAGE
+		===========================================================
+		-->
+		
+		<!--
+		===========================================================
+		Placed at the end of the document so the pages load faster
+		===========================================================
+		-->
+		<!-- MAIN JAVASRCIPT (REQUIRED ALL PAGE)-->
+		<script src="static/assets/js/jquery.min.js"></script>
+		<script src="static/assets/js/bootstrap.min.js"></script>
+		<script src="static/assets/plugins/retina/retina.min.js"></script>
+		<script src="static/assets/plugins/nicescroll/jquery.nicescroll.js"></script>
+		<script src="static/assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+		<script src="static/assets/plugins/backstretch/jquery.backstretch.min.js"></script>
+ 
+		<!-- PLUGINS -->
+		<script src="static/assets/plugins/skycons/skycons.js"></script>
+		<script src="static/assets/plugins/prettify/prettify.js"></script>
+		<script src="static/assets/plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
+		<script src="static/assets/plugins/owl-carousel/owl.carousel.min.js"></script>
+		<script src="static/assets/plugins/chosen/chosen.jquery.min.js"></script>
+		<script src="static/assets/plugins/icheck/icheck.min.js"></script>
+		<script src="static/assets/plugins/datepicker/bootstrap-datepicker.js"></script>
+		<script src="static/assets/plugins/timepicker/bootstrap-timepicker.js"></script>
+		<script src="static/assets/plugins/mask/jquery.mask.min.js"></script>
+		<script src="static/assets/plugins/validator/bootstrapValidator.min.js"></script>
+		<script src="static/assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
+		<script src="static/assets/plugins/datatable/js/bootstrap.datatable.js"></script>
+		<script src="static/assets/plugins/summernote/summernote.min.js"></script>
+		<script src="static/assets/plugins/markdown/markdown.js"></script>
+		<script src="static/assets/plugins/markdown/to-markdown.js"></script>
+		<script src="static/assets/plugins/markdown/bootstrap-markdown.js"></script>
+		<script src="static/assets/plugins/slider/bootstrap-slider.js"></script>
+		
+		<script src="static/assets/plugins/toastr/toastr.js"></script>
+		
+		<!-- FULL CALENDAR JS -->
+		<script src="static/assets/plugins/fullcalendar/lib/jquery-ui.custom.min.js"></script>
+		<script src="static/assets/plugins/fullcalendar/fullcalendar/fullcalendar.min.js"></script>
+		<script src="static/assets/js/full-calendar.js"></script>
+		
+		<!-- EASY PIE CHART JS -->
+		<script src="static/assets/plugins/easypie-chart/easypiechart.min.js"></script>
+		<script src="static/assets/plugins/easypie-chart/jquery.easypiechart.min.js"></script>
+		
+		<!-- KNOB JS -->
+		<!--[if IE]>
+		<script type="text/javascript" src="static/assets/plugins/jquery-knob/excanvas.js"></script>
+		<![endif]-->
+		<script src="static/assets/plugins/jquery-knob/jquery.knob.js"></script>
+		<script src="static/assets/plugins/jquery-knob/knob.js"></script>
+
+		<!-- FLOT CHART JS -->
+		<script src="static/assets/plugins/flot-chart/jquery.flot.js"></script>
+		<script src="static/assets/plugins/flot-chart/jquery.flot.tooltip.js"></script>
+		<script src="static/assets/plugins/flot-chart/jquery.flot.resize.js"></script>
+		<script src="static/assets/plugins/flot-chart/jquery.flot.selection.js"></script>
+		<script src="static/assets/plugins/flot-chart/jquery.flot.stack.js"></script>
+		<script src="static/assets/plugins/flot-chart/jquery.flot.time.js"></script>
+
+		<!-- MORRIS JS -->
+		<script src="static/assets/plugins/morris-chart/raphael.min.js"></script>
+		<script src="static/assets/plugins/morris-chart/morris.min.js"></script>
+		
+		<!-- C3 JS -->
+		<script src="static/assets/plugins/c3-chart/d3.v3.min.js" charset="utf-8"></script>
+		<script src="static/assets/plugins/c3-chart/c3.min.js"></script>
+		
+		<!-- MAIN APPS JS -->
+		<script src="static/assets/js/apps.js"></script>
+		<script src="static/assets/js/demo-panel.js"></script>
+		
+	</body>
+</html>
