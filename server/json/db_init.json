@@ -1,0 +1,12 @@
+{"author":"admin","opType":"add","invalid":0,"data":
+	[{"cpu_norm":1,"mem_norm":1,"basePrice":10,"userPrice":0.1},
+	{"cpu_norm":1,"mem_norm":2,"basePrice":15,"userPrice":0.15},
+	{"cpu_norm":1,"mem_norm":4,"basePrice":20,"userPrice":0.2},
+	{"cpu_norm":2,"mem_norm":2,"basePrice":30,"userPrice":0.25},
+	{"cpu_norm":2,"mem_norm":4,"basePrice":40,"userPrice":0.3},
+	{"cpu_norm":2,"mem_norm":8,"basePrice":50,"userPrice":0.35},
+	{"cpu_norm":4,"mem_norm":4,"basePrice":60,"userPrice":0.4},
+	{"cpu_norm":4,"mem_norm":8,"basePrice":70,"userPrice":0.45},
+	{"cpu_norm":8,"mem_norm":8,"basePrice":80,"userPrice":0.5}
+	]
+}

@@ -5,4 +5,5 @@ MesosMasterAddress = ['172.29.152.185','172.29.152.186','172.29.152.188']
 
 MesosMasterPort = 5050
 
-dbPath = "sqlite:///home/xzb/Documents/CMB/server/db/sqlite.db"
+dbRoot = os.path.abspath('.') + '/db/sqlite.db'
+dbPath = "sqlite:///db/sqlite.db"

@@ -8,7 +8,8 @@ from werkzeug.wsgi import SharedDataMiddleware
 from werkzeug.exceptions import HTTPException, NotFound
 from werkzeug.serving import run_simple
 from views import Views
-from views_util import IniteDB
+from conf import *
+from views_util import *
 
 
 def application(environ, start_response):
@@ -31,6 +32,8 @@ def create_app():
     return app
 
 if __name__ == '__main__':
-    IniteDB()
+    if not os.path.exists(dbRoot):
+        from sqlite_util import initDB
+        initDB()
     app = create_app()
     run_simple('127.0.0.1', 5000, app, use_debugger=True, use_reloader=True)

@@ -35,12 +35,18 @@ def CurrentLeader():
         data = json.loads(ret)
         if data['slaves'] is not None:
             return item
-
+'''
 def IniteDB():
-    engine = create_engine('sqlite:///:memory:')
+    engine = create_engine(dbPath)
     Base.metadata.create_all(engine)
-
+    Session = sessionmaker(bind=engine)
+    session = Session()
+    policy1 = MainPolicy(author='admin', cpu_norm=1, mem_norm=1, basePrice=10, userPrice=0.1, invalid=0, opType='add')
+    session.add(policy1)
+    session.commit()
+'''
 def getSession():
-    engine = create_engine('sqlite:///:memory:')
-    session = sessionmaker(bind=engine)
+    engine = create_engine(dbPath)
+    Session = sessionmaker(bind=engine)
+    session = Session()
     return session

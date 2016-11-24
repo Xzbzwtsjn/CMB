@@ -1,12 +1,13 @@
 import sys
 import os
+import datetime
 import simplejson as json
 from werkzeug.routing import Map, Rule
 from werkzeug.wrappers import Request, Response
 from views_util import *
 from conf import *
 from jinja2 import Environment, FileSystemLoader
-
+from sqlalchemy import update
 class Views:
     def __init__(self, request):
         self.url_map = []
@@ -56,18 +57,29 @@ class Views:
 
     @response
     def getPolicy(self, request):
-        pass
-
+        ret = []
+        if request.method =='GET':
+            for row in self.session.query(MainPolicy).all():
+                po = {}
+                po['cpu'] = row.cpu_norm
+                po['mem'] = row.mem_norm
+                po['basePrice'] = row.basePrice
+                po['userPrice'] = row.userPrice
+                ret.append(po)
+        ret = json.dumps(ret)
+        return ret
     @response
     def updatePolicy(self, request):
         ret = ''
         if request.method == 'GET':
             cpu = request.args['cpu']
-            mon = request.args['mem']
+            mem = request.args['mem']
             basePrice = request.args['base']
-            usePrice = request.args['use']
-            weight = raquest.args['weight']
-            item = self.session.query()
+            userPrice = request.args['use']
+            #weight = request.args['weight']
+            item = self.session.query(MainPolicy).filter(MainPolicy.cpu_norm==cpu, MainPolicy.mem_norm==mem).update({'basePrice':basePrice, 'userPrice':userPrice})
+            self.session.commit()
+        return 'success'
 
     @response
     def getMonbill(self, request):
@@ -80,7 +92,6 @@ class Views:
                 content = json.load(open("./json/monthlyBilling.json"))
                 print content
                 ret = json.dumps(content)
-        #return self.render_template('resources.html', error=None, url=None)
         return ret
 
     @response
