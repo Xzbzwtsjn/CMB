@@ -10,8 +10,6 @@ from werkzeug.serving import run_simple
 from views import Views
 from views_util import IniteDB
 
-#views= views()
-#url_map = Map(views.url_map)
 
 def application(environ, start_response):
     request = Request(environ)
