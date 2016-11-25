@@ -10,18 +10,18 @@ from werkzeug.serving import run_simple
 from views import Views
 from conf import *
 from views_util import *
-
+from admin_views import *
 
 def application(environ, start_response):
     request = Request(environ)
     view = Views(request)
-    url_map = Map(view.url_map)
+    admin_view = AdminViews(request)
+    url_map = Map(view.url_map + admin_view.url_map)
     adapter = url_map.bind_to_environ(request.environ)
     try:
         endpoint, values = adapter.match()
         handler = getattr(view, endpoint)
         response = handler(request, **values)
-        print endpoint,values
     except HTTPException, e:
         return e(environ, start_response)
     return response(environ, start_response)

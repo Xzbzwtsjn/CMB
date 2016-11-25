@@ -9,14 +9,14 @@
 "Amount":5000,
 "Instance":5,
 "ReservedInstance":5,
-"Resource Request":
+"Resource_Request":
           [
                 {"CPU":[{"cores":10,"Frequency":2.2,"Methord":"Form"}]},
 		{"MEM":[{"size":100,"Methord":"Form"}]},
 		{"NET":[{"size":"10MB","Methord":"bandWidth"}]},
                 {"IO":[{"size":"50G","Methord":"capacity"}]}
           ],
-"Rough dailyBill":
+"Rough_dailyBill":
          [
          	{"days":[{
                 	"1":120,
@@ -53,14 +53,14 @@
                 	}]},
          	{"total":3400}
          ],
-"Resource Usage":
+"Resource_Usage":
           [
                 {"CPU":0.4,
                 "MEM":0.3,
                 "NET":0.8,
                 "IO":0.7}
           ],
-"Service Usage":
+"Service_Usage":
          [
                 {"Docker Registry":5,
                 "Load Average":10000,
@@ -74,5 +74,5 @@
                 "Type3":"XXX"},
 		{"Discount Sum":1200}
         ],
-"Total Billing":2200
+"Total_Billing":2200
 }

@@ -7,3 +7,4 @@ MesosMasterPort = 5050
 
 dbRoot = os.path.abspath('.') + '/db/sqlite.db'
 dbPath = "sqlite:///db/sqlite.db"
+template_path = os.path.join(os.path.dirname(__file__),'templates')
