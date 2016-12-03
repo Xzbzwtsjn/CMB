@@ -13,8 +13,8 @@
           [
                 {"CPU":[{"cores":10,"Frequency":2.2,"Methord":"Form"}]},
 		{"MEM":[{"size":100,"Methord":"Form"}]},
-		{"NET":[{"size":"10MB","Methord":"bandWidth"}]},
-                {"IO":[{"size":"50G","Methord":"capacity"}]}
+		{"NET":[{"size":10,"Methord":"bandWidth"}]},
+                {"IO":[{"size":50,"Methord":"capacity"}]}
           ],
 "Rough_dailyBill":
          [

@@ -1,40 +1,95 @@
 function change2Edit(obj){
-	var tr = obj.parentNode.parentNode;
-	var a = tr.getElementsByTagName('a');
-	var aText = a[0].text ;
+    var tr = $(obj).parent().parent();
+    var a = tr.find("a");
+    var aText = a.text();
+    var tds = tr.find('td');
 
-	if ('修改' == aText){
+    if ('修改' == aText){
+        for (var i = 0 ; i < tds.length-3;i++){
+            var val = $(tds[i]).text();
+            var input = $('<input type=\'text\' value=\''+val+'\'/>');
+            $(tds[i]).html(input);
+            a.text('更新');
+        }
+    }else if ('更新' == aText){
+         var userprice = $(tds[0]).find('input').val();
+         var baseprice = $(tds[1]).find('input').val();
+         var cpu = $(tds[2]).text();
+         var mem = $(tds[3]).text();
 
-		var tds = tr.getElementsByTagName('td');
+          $.ajax({
+         type: 'GET',
+         url:'updatePolicy',
+         async: false,
+         data:{
+         	cpu:cpu,
+         	mem:mem,
+         	use:userprice,
+         	base:baseprice
+         },
+         error:function(){
+         	alert('connect falied!');
+         },
+         success:function(data){
+         	if ('success' == data){
+         	    $(tds[0]).text(userprice);
+         	    $(tds[1]).text(baseprice);
+         	    $(tds[2]).text(cpu);
+         	    $(tds[3]).text(mem);
 
-		for (var i = 0 ; i < tds.length - 3 ; i++){
-			var val = tds[i].innerText;
-			var input = document.createElement("input");
-			input.setAttribute('type','text');
-			input.setAttribute('value',val);
-			tds[i].innerText = "";
-			tds[i].appendChild(input);
-		}
+         	    alert('update success');
+         	    a.text('修改');
+         	}
+         }
+     });
+         
+    }
+}
 
-		a[0].text = '更新';
-	}else if ('更新' == aText){
+function changeWeight2Edit(obj){
+    var tr = $(obj).parent().parent();
+    var a = tr.find("a");
+    var aText = a.text();
+    var tds = tr.find('td');
 
-		var tds = tr.getElementsByTagName('td');
+    if ('修改' == aText){
+        var val = $(tds[1]).text();
+        var input = $('<input type=\'text\' value=\''+val+'\'/>');
+        $(tds[1]).html(input);
 
-		for (var i = 0 ; i < tds.length - 1 ; i++){
+        // var val1 = $(tds[3]).text();
+        // var input1 = $('<input type=\'text\' value=\''+val1+'\'/>');
+        // $(tds[3]).html(input1);
 
-			// var val = tds[i].innerText;
-			// var input = document.createElement("input");
-			// input.setAttribute('type','text');
-			// input.setAttribute('value',val);
-			// tds[i].innerText = "";
-			// tds[i].appendChild(input);
-		}
+        a.text('更新');
+    }else if ('更新' == aText){
+         var value = $(tds[1]).find('input').val();
 
-		a[0].text = '更新';
-	}
-	
-	// alert(obj.parentNode.parentNode);
+          $.ajax({
+         type: 'GET',
+         url:'setPair',
+         async: false,
+         data:{
+         	key:'computeRes',
+         	value:value
+         },
+         error:function(){
+         	alert('connect falied!');
+         },
+         success:function(data){
+         	if ('Operation Success' == data){
+
+         	    $(tds[1]).text(value);
+         	    var another = Math.round((1-value)*100)/100;
+         	    $(tds[3]).text(another);
+
+         	    alert('update success');
+         	    a.text('修改');
+         	}
+         }
+     });
+         
+    }
 }
 $(document).ready(function(){
 

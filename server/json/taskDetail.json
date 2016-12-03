@@ -1,0 +1,20 @@
+{"JobName":"test-11-16-0",
+ "cpus":0.5,
+ "disk":256.0,
+ "mem":512.0,
+ "disabled":true,
+ "softError":false,
+ "dataProcessingJobType":false,
+ "errorsSinceLastSuccess":0,
+ "environmentVariables":[],
+ "highPriority":false,
+ "runAsUser":"root",
+ "constraints":[],
+ "schedule":"R0/2016-11-17T08:05:56.403Z/PT24H",
+ "taskList":
+        [
+            	{"TaskID":"789","ResourceUsage":[{"CPU":0.5, "MEM":0.7, "NET":0.6, "IO":0.2}]},
+            	{"TaskID":"123","ResourceUsage":[{"CPU":0.9, "MEM":0.8, "NET":0.7, "IO":0.6}]},
+            	{"TaskID":"456","ResourceUsage":[{"CPU":0.2, "MEM":0.8, "NET":0.6, "IO":0.4}]}
+        ]
+}

@@ -6,24 +6,20 @@
     "Date":"2016-05-05",
     "Jobs":
     [
-        {"Job1":
-        [
-            	{"Task1":[{"CPU":0.5, "MEM":0.7, "NET":0.6, "IO":0.2}]},
-            	{"Task2":[{"CPU":0.9, "MEM":0.8, "NET":0.7, "IO":0.6}]},
-            	{"Task3":[{"CPU":0.2, "MEM":0.8, "NET":0.6, "IO":0.4}]}
-        ]
+        {"JobID":"1234",
+	"JobName":"test-11-16-0",
+	"command":"ping -w 4 www.baidu.com",
+	"lastSuccess":"2016-11-16T08:06:08.839Z"
 	},
-
-        {"Job2":
-        [
-            	{"Task4":[{"CPU":0.2, "MEM":0.9, "NET":0.6, "IO":0.4}]}
-        ]
+	{"JobID":"5678",
+	"JobName":"test-11-16-1",
+	"command":"ping -w 4 www.taobao.com",
+	"lastSuccess":"2016-11-16T08:06:08.839Z"
 	},
-
-        {"Job3":
-        [
-		{"Task5":[{"CPU":0.8, "MEM":0.8, "NET":0.5, "IO":0.3}]}
-	]
+	{"JobID":"8975",
+	"JobName":"test-11-16-2",
+	"command":"ping -w 4 www.tamail.com",
+	"lastSuccess":"2016-11-16T08:06:08.839Z"
 	}
     ],
     "Total":52

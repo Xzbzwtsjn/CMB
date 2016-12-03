@@ -6,7 +6,7 @@
 		<meta name="description" content="Sentir, Responsive admin and dashboard UI kits template">
 		<meta name="keywords" content="admin,bootstrap,template,responsive admin,dashboard template,web apps template">
 		<meta name="author" content="Ari Rusmanto, Isoh Design Studio, Warung Themes">
-		<title>SENTIR - Responsive admin and dashboard UI kits template</title>
+		<title>计费规则</title>
  
 
 		<!-- BOOTSTRAP CSS (REQUIRED ALL PAGE)-->
@@ -67,11 +67,17 @@
 					
 					<div class="top-nav-content">
 						<ul class="nav navbar-nav">
-					        <li><a href="search.html">首页</a></li>
-					        <li><a href="search.html">账单查询</a></li>
-					        <li><a href="resources.html">资源状态</a></li>
-					        <li><a href="policy.html">计费规则</a></li>
-					    </ul>
+						        <li><a href="index">首页</a></li>
+						         <li class="dropdown">
+						          <a href="#" class="dropdown-toggle" data-toggle="dropdown">账单查询&nbsp;<span class="fa fa-angle-down"></span></a>
+						          <ul class="dropdown-menu" role="menu">
+						            <li><a href="daliySearch">日账单查询</a></li>
+						            <li><a href="monthlySearch">月账单查询</a></li>
+						          </ul>
+						        </li>
+						        <li><a href="resources">资源状态</a></li>
+						        <li><a href="policy">计费规则</a></li>
+						 </ul>
 						
 						 <ul class="nav navbar-nav navbar-right">
 					        <li class="dropdown">
@@ -123,42 +129,13 @@
 										<tr>
 											<td colspan="7"><h5>计算资源</h5></td>
 										</tr>
-										<tr>
+										<tr id="computeResPreNode">
 											<td>计算资源价格（每小时K）</td>
 											<td>基础价格（CPU_Price）</td>
 											<td colspan="2">CPU(核)</td>
 											<td colspan="2">内存（G）</td>
 										</tr>
-										<tr>
-											<td>0.1</td>
-											<td>10</td>
-											<td colspan="2">1</td>
-											<td colspan="2">1</td>
-										</tr>
-										<tr>
-											<td>0.1</td>
-											<td>10</td>
-											<td colspan="2">1</td>
-											<td colspan="2">1</td>
-										</tr>
-										<tr>
-											<td>0.1</td>
-											<td>10</td>
-											<td colspan="2">1</td>
-											<td colspan="2">1</td>
-										</tr>
-										<tr>
-											<td>0.1</td>
-											<td>10</td>
-											<td colspan="2">1</td>
-											<td colspan="2">1</td>
-										</tr>
-										<tr>
-											<td>0.1</td>
-											<td>10</td>
-											<td colspan="2">1</td>
-											<td colspan="2">1</td>
-										</tr>
+										
 										<tr>
 											<td colspan="7"><h5>存储资源</h5></td>
 										</tr>
@@ -342,6 +319,6 @@
 		<!-- MAIN APPS JS -->
 		<script src="static/assets/js/apps.js"></script>
 		<script src="static/assets/js/demo-panel.js"></script>
-		
+		<script src="static/assets/project/js/policy.js"></script>
 	</body>
 </html>

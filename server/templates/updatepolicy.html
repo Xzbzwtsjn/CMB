@@ -6,7 +6,7 @@
 		<meta name="description" content="Sentir, Responsive admin and dashboard UI kits template">
 		<meta name="keywords" content="admin,bootstrap,template,responsive admin,dashboard template,web apps template">
 		<meta name="author" content="Ari Rusmanto, Isoh Design Studio, Warung Themes">
-		<title>SENTIR - Responsive admin and dashboard UI kits template</title>
+		<title>更新计费规则</title>
  
 
 		<!-- BOOTSTRAP CSS (REQUIRED ALL PAGE)-->
@@ -67,24 +67,30 @@
 					
 					<div class="top-nav-content">
 						<ul class="nav navbar-nav">
-					        <li><a href="search.html">首页</a></li>
-					        <li><a href="search.html">账单查询</a></li>
-					        <li><a href="resources.html">资源状态</a></li>
-					        <li><a href="policy.html">计费规则</a></li>
-					    </ul>
+						        <li><a href="index">首页</a></li>
+						         <li class="dropdown">
+						          <a href="#" class="dropdown-toggle" data-toggle="dropdown">账单查询&nbsp;<span class="fa fa-angle-down"></span></a>
+						          <ul class="dropdown-menu" role="menu">
+						            <li><a href="daliySearch">日账单查询</a></li>
+						            <li><a href="monthlySearch">月账单查询</a></li>
+						          </ul>
+						        </li>
+						        <li><a href="resources">资源状态</a></li>
+						        <li><a href="policy">计费规则</a></li>
+						 </ul>
 						
 						 <ul class="nav navbar-nav navbar-right">
-					        <li class="dropdown">
-					          <a href="#" class="dropdown-toggle" data-toggle="dropdown">xtzhao&nbsp;<span class="fa fa-angle-down"></span></a>
-					          <ul class="dropdown-menu" role="menu">
-					            <li><a href="#">Action</a></li>
-					            <li><a href="#">Another action</a></li>
-					            <li><a href="#">Something else here</a></li>
-					            <li class="divider"></li>
-					            <li><a href="#">Separated link</a></li>
-					          </ul>
-					        </li>
-					      </ul>
+						        <li class="dropdown">
+						          <a href="#" class="dropdown-toggle" data-toggle="dropdown">xtzhao&nbsp;<span class="fa fa-angle-down"></span></a>
+						          <ul class="dropdown-menu" role="menu">
+						            <li><a href="#">Action</a></li>
+						            <li><a href="#">Another action</a></li>
+						            <li><a href="#">Something else here</a></li>
+						            <li class="divider"></li>
+						            <li><a href="#">Separated link</a></li>
+						          </ul>
+						        </li>
+						      </ul>
 
 					</div><!-- /.top-nav-content -->
 				</div><!-- /.top-navbar-inner -->
@@ -112,6 +118,16 @@
 					  				<table class="nist-table table text-center" style="margin-top:20px;">
 										<tr>
 											<td colspan="7"><h4>云平台收费一览表</h4></td>
+										</tr>
+										<tr>
+											<td colspan="7"><h5>权重设置</h5></td>
+										</tr>
+										<tr>
+											<td>计算资源</td>
+											<td>0.5</td>
+											<td colspan="2">网络资源(1-计算资源)</td>
+											<td colspan="2">0.5</td>
+											<td><a href="#" onclick="changeWeight2Edit(this)">修改</a></td>
 										</tr>
 										<tr>
 											<td colspan="7"><h5>计算资源</h5></td>

@@ -6,7 +6,7 @@
 		<meta name="description" content="Sentir, Responsive admin and dashboard UI kits template">
 		<meta name="keywords" content="admin,bootstrap,template,responsive admin,dashboard template,web apps template">
 		<meta name="author" content="Ari Rusmanto, Isoh Design Studio, Warung Themes">
-		<title>SENTIR - Responsive admin and dashboard UI kits template</title>
+		<title>账单</title>
  
 
 		<!-- BOOTSTRAP CSS (REQUIRED ALL PAGE)-->
@@ -67,24 +67,30 @@
 					
 					<div class="top-nav-content">
 						<ul class="nav navbar-nav">
-					        <li><a href="search.html">首页</a></li>
-					        <li><a href="search.html">账单查询</a></li>
-					        <li><a href="resources.html">资源状态</a></li>
-					        <li><a href="policy.html">计费规则</a></li>
-					    </ul>
+						        <li><a href="index">首页</a></li>
+						         <li class="dropdown">
+						          <a href="#" class="dropdown-toggle" data-toggle="dropdown">账单查询&nbsp;<span class="fa fa-angle-down"></span></a>
+						          <ul class="dropdown-menu" role="menu">
+						            <li><a href="daliySearch">日账单查询</a></li>
+						            <li><a href="monthlySearch">月账单查询</a></li>
+						          </ul>
+						        </li>
+						        <li><a href="resources">资源状态</a></li>
+						        <li><a href="policy">计费规则</a></li>
+						 </ul>
 						
 						 <ul class="nav navbar-nav navbar-right">
-					        <li class="dropdown">
-					          <a href="#" class="dropdown-toggle" data-toggle="dropdown">xtzhao&nbsp;<span class="fa fa-angle-down"></span></a>
-					          <ul class="dropdown-menu" role="menu">
-					            <li><a href="#">Action</a></li>
-					            <li><a href="#">Another action</a></li>
-					            <li><a href="#">Something else here</a></li>
-					            <li class="divider"></li>
-					            <li><a href="#">Separated link</a></li>
-					          </ul>
-					        </li>
-					      </ul>
+						        <li class="dropdown">
+						          <a href="#" class="dropdown-toggle" data-toggle="dropdown">xtzhao&nbsp;<span class="fa fa-angle-down"></span></a>
+						          <ul class="dropdown-menu" role="menu">
+						            <li><a href="#">Action</a></li>
+						            <li><a href="#">Another action</a></li>
+						            <li><a href="#">Something else here</a></li>
+						            <li class="divider"></li>
+						            <li><a href="#">Separated link</a></li>
+						          </ul>
+						        </li>
+						      </ul>
 
 					</div><!-- /.top-nav-content -->
 				</div><!-- /.top-navbar-inner -->
@@ -98,7 +104,7 @@
 					
 					<ol class="breadcrumb default" style="margin-top:20px;">
 					  <li class="active">我的位置</a></li>
-					  <li><a href="search.html">首页</a></li>
+					  <li><a href="search">首页</a></li>
 					  <li class="active">账单详情</li>
 					</ol>
 
@@ -121,191 +127,181 @@
 					  				<table class="nist-table table text-center" style="margin-top:20px;">
 										<tr>
 											<td>账号</td>
-											<td>xtzhao</td>
+											<td><span id="ID"></span></td>
 											<td>姓名</td>
-											<td>张三</td>
+											<td><span id="name"></span></td>
 											<td>计费周期</td>
-											<td colspan="2">2016/09/01-2016/09/30</td>
+											<td colspan="2"><span id="Cycle"></span></td>
 										</tr>
 										<tr>
 											<td>服务等级</td>
-											<td>vip</td>
+											<td><span id="Level"></span></td>
 											<td>应用类型</td>
-											<td>计算型</td>
+											<td><span id="ApplicationType"></span></td>
 											<td>账单类型</td>
-											<td colspan="2">（月）账单</td>
+											<td colspan="2"><span id="BillType"></span></td>
 										</tr>
 										<tr>
 											<td colspan="2">是否预付费</td>
-											<td colspan="2">是</td>
+											<td colspan="2"><span id="prepaid"></span></td>
 											<td>金额</td>
-											<td colspan="2">1220元</td>
+											<td colspan="2"><span id="Amount"></span></td>
 										</tr>
 										<tr>
 											<td colspan="2">实例数</td>
-											<td colspan="2">5</td>
+											<td colspan="2"><span id="Instance"></span></td>
 											<td>预留实例数</td>
-											<td colspan="2">5</td>
+											<td colspan="2"><span id="ReservedInstance"></span></td>
 										</tr>
 										<tr>
 											<td colspan="7"><h5>资源申请表</h5></td>
 										</tr>
 										<tr>
 											<td colspan="2">CPU资源</td>
-											<td colspan="2">10核2.2GHz</td>
-											<td rowspan="2" style="line-height:400%;">固定价目表</td>
-											<td rowspan="2" colspan="2" style="line-height:400%;">500元</td>
-										</tr>
-										<tr>
-											<td colspan="2">内存资源</td>
-											<td colspan="2">100G</td>
+											<td colspan="2"><span id="Resource_Request_CPU"></span></td>
+											<td>内存资源</td>
+											<td colspan="2"><span id="Resource_Request_MEM"></span></td>
 										</tr>
 										<tr>
 											<td colspan="2">网络资源</td>
-											<td colspan="2">10Mb</td>
-											<td>按流量/按带宽</td>
-											<td colspan="2">600</td>
-										</tr>
-										<tr>						
-											<td>按流量/按带宽</td>
-											<td colspan="2">600</td>
-											<td>按IO次数/按空间</td>
-											<td colspan="2">50元</td>
-										</tr>
+											<td colspan="2"><span id="Resource_Request_NET"></span></td>
+											<td>IO资源</td>
+											<td colspan="2"><span id="Resource_Request_IO"></span></td>
+										</tr>									
 										<tr>
 											<td colspan="7"><h5>日账单明细（可点入详细查看）</h5></td>
 										</tr>
 										<tr>
-											<td><a href="#">1</a></td>
-											<td><a href="#">2</a></td>
-											<td><a href="#">3</a></td>
-											<td><a href="#">4</a></td>
-											<td><a href="#">5</a></td>
-											<td><a href="#">6</a></td>
-											<td><a href="#">7</a></td>
+											<td><a href="#" id="dayBillHref1">1</a></td>
+											<td><a href="#" id="dayBillHref2">2</a></td>
+											<td><a href="#" id="dayBillHref3">3</a></td>
+											<td><a href="#" id="dayBillHref4">4</a></td>
+											<td><a href="#" id="dayBillHref5">5</a></td>
+											<td><a href="#" id="dayBillHref6">6</a></td>
+											<td><a href="#" id="dayBillHref7">7</a></td>
 										</tr>
 										<tr>
-											<td>123</td>
-											<td>234</td>
-											<td>45</td>
-											<td>56</td>
-											<td>65</td>
-											<td>34</td>
-											<td>764</td>
+											<td><span id="dayBillAmount1"></span></td>
+											<td><span id="dayBillAmount2"></span></td>
+											<td><span id="dayBillAmount3"></span></td>
+											<td><span id="dayBillAmount4"></span></td>
+											<td><span id="dayBillAmount5"></span></td>
+											<td><span id="dayBillAmount6"></span></td>
+											<td><span id="dayBillAmount7"></span></td>
 										</tr>
 										<tr>
-											<td><a href="#">8</a></td>
-											<td><a href="#">9</a></td>
-											<td><a href="#">10</a></td>
-											<td><a href="#">11</a></td>
-											<td><a href="#">12</a></td>
-											<td><a href="#">13</a></td>
-											<td><a href="#">14</a></td>
+											<td><a href="#" id="dayBillHref8">8</a></td>
+											<td><a href="#" id="dayBillHref9">9</a></td>
+											<td><a href="#" id="dayBillHref10">10</a></td>
+											<td><a href="#" id="dayBillHref11">11</a></td>
+											<td><a href="#" id="dayBillHref12">12</a></td>
+											<td><a href="#" id="dayBillHref13">13</a></td>
+											<td><a href="#" id="dayBillHref14">14</a></td>
 											
 										</tr>
 										<tr>
-											<td>123</td>
-											<td>234</td>
-											<td>45</td>
-											<td>56</td>
-											<td>65</td>
-											<td>34</td>
-											<td>764</td>
+											<td><span id="dayBillAmount8"></span></td>
+											<td><span id="dayBillAmount9"></span></td>
+											<td><span id="dayBillAmount10"></span></td>
+											<td><span id="dayBillAmount11"></span></td>
+											<td><span id="dayBillAmount12"></span></td>
+											<td><span id="dayBillAmount13"></span></td>
+											<td><span id="dayBillAmount14"></span></td>
 										</tr>
 										<tr>
-											<td><a href="#">15</a></td>
-											<td><a href="#">16</a></td>
-											<td><a href="#">17</a></td>
-											<td><a href="#">18</a></td>
-											<td><a href="#">19</a></td>
-											<td><a href="#">20</a></td>
-											<td><a href="#">21</a></td>
+											<td><a href="#" id="dayBillHref15">15</a></td>
+											<td><a href="#" id="dayBillHref16">16</a></td>
+											<td><a href="#" id="dayBillHref17">17</a></td>
+											<td><a href="#" id="dayBillHref18">18</a></td>
+											<td><a href="#" id="dayBillHref19">19</a></td>
+											<td><a href="#" id="dayBillHref20">20</a></td>
+											<td><a href="#" id="dayBillHref21">21</a></td>
 
 										</tr>
 										<tr>
-											<td>123</td>
-											<td>234</td>
-											<td>45</td>
-											<td>56</td>
-											<td>65</td>
-											<td>34</td>
-											<td>764</td>
+											<td><span id="dayBillAmount15"></span></td>
+											<td><span id="dayBillAmount16"></span></td>
+											<td><span id="dayBillAmount17"></span></td>
+											<td><span id="dayBillAmount18"></span></td>
+											<td><span id="dayBillAmount19"></span></td>
+											<td><span id="dayBillAmount20"></span></td>
+											<td><span id="dayBillAmount21"></span></td>
 										</tr>
 										<tr>
-											<td><a href="#">22</a></td>
-											<td><a href="#">23</a></td>
-											<td><a href="#">24</a></td>
-											<td><a href="#">25</a></td>
-											<td><a href="#">26</a></td>
-											<td><a href="#">27</a></td>
-											<td><a href="#">28</a></td>
+											<td><a href="#" id="dayBillHref22">22</a></td>
+											<td><a href="#" id="dayBillHref23">23</a></td>
+											<td><a href="#" id="dayBillHref24">24</a></td>
+											<td><a href="#" id="dayBillHref25">25</a></td>
+											<td><a href="#" id="dayBillHref26">26</a></td>
+											<td><a href="#" id="dayBillHref27">27</a></td>
+											<td><a href="#" id="dayBillHref28">28</a></td>
 										</tr>
 										<tr>
-											<td>123</td>
-											<td>234</td>
-											<td>45</td>
-											<td>56</td>
-											<td>65</td>
-											<td>34</td>
-											<td>764</td>
+											<td><span id="dayBillAmount22"></span></td>
+											<td><span id="dayBillAmount23"></span></td>
+											<td><span id="dayBillAmount24"></span></td>
+											<td><span id="dayBillAmount25"></span></td>
+											<td><span id="dayBillAmount26"></span></td>
+											<td><span id="dayBillAmount27"></span></td>
+											<td><span id="dayBillAmount28"></span></td>
 										</tr>
 										<tr>
-											<td><a href="#">29</a></td>
-											<td><a href="#">30</a></td>
-											<td><a href="#">31</a></td>
-											<td colspan="4" rowspan="2" style="line-height:400%">总计：1300元</td>
+											<td><a href="#"  id="dayBillHref29">29</a></td>
+											<td><a href="#" id="dayBillHref30">30</a></td>
+											<td><a href="#" id="dayBillHref31">31</a></td>
+											<td colspan="4" rowspan="2" style="line-height:400%">总计：<span id="dayBilltotal"></span>元</td>
 										</tr>
 										<tr>
-											<td>123</td>
-											<td>234</td>
-											<td>45</td>
+											<td><span id="dayBillAmount29"></span></td>
+											<td><span id="dayBillAmount30"></span></td>
+											<td><span id="dayBillAmount31"></span></td>
 										</tr>
 										<tr>
 											<td colspan="7"><h5>实际资源使用率</h5></td>
 										</tr>
 										<tr>
 											<td colspan="2">CPU</td>
-											<td colspan="2">0.8</td>
+											<td colspan="2"><span id="Resource_Usage_CPU"></span></td>
 											<td>内存</td>
-											<td colspan="2">0.4</td>
+											<td colspan="2"><span id="Resource_Usage_MEM"></span></td>
 										</tr>
 										<tr>
 											<td colspan="2">网络</td>
-											<td colspan="2">50G</td>
+											<td colspan="2"><span id="Resource_Usage_NET"></span></td>
 											<td>磁盘</td>
-											<td colspan="2">30G/50G</td>
+											<td colspan="2"><span id="Resource_Usage_IO"></span></td>
 										</tr>
 										<tr>
 											<td colspan="7"><h5>实际服务使用量（次/项）</h5></td>
 										</tr>
 										<tr>
 											<td colspan="2">镜像服务</td>
-											<td colspan="2">8（次）</td>
+											<td colspan="2"><span id="Service_Usage_Docker_Registry"></span></td>
 											<td>负载均衡服务</td>
-											<td colspan="2">10000（次）</td>
+											<td colspan="2"><span id="Service_Usage_Load_Average"></span></td>
 										</tr>
 										<tr>
 											<td colspan="2">数据备份服务</td>
-											<td colspan="2">1（项）</td>
+											<td colspan="2"><span id="Service_Usage_Data_Backup"></span></td>
 											<td>服务小计</td>
-											<td colspan="2">30</td>
+											<td colspan="2"><span id="Service_Usage_Service_Billing">sss</span></td>
 										</tr>
 										<tr>
 											<td colspan="7"><h5>折扣项</h5></td>
 										</tr>
 										<tr>
-											<td colspan="2">包年服务</td>
-											<td colspan="2">新用户</td>
-											<td>xxxx</td>
-											<td colspan="2">xxxxx</td>
+											<td colspan="2"><span id="discount_type1"></span></td>
+											<td colspan="2"><span id="discount_type2"></span></td>
+											<td><span id="discount_type3"></span></td>
+											<td colspan="2"></td>
 										</tr>
 										<tr>
 											<td colspan="2">折扣小计</td>
-											<td colspan="5">0.85</td>
+											<td colspan="5"><span id="Discount_Sum"></span></td>
 										</tr>
 										<tr>
 											<td colspan="2">月度总计</td>
-											<td colspan="5">1130.5元</td>
+											<td colspan="5"><span id="Total_Billing"></span></td>
 										</tr>
 									</table>
 					  			</div>
@@ -413,6 +409,6 @@
 		<!-- MAIN APPS JS -->
 		<script src="static/assets/js/apps.js"></script>
 		<script src="static/assets/js/demo-panel.js"></script>
-		
+		<script src="static/assets/project/js/monthBillDetail.js"></script>
 	</body>
 </html>
