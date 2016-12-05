@@ -183,6 +183,8 @@
 				html += '<span class="month">'+DPGlobal.dates.monthsShort[i++]+'</span>';
 			}
 			this.picker.find('.datepicker-months td').append(html);
+			// this.picker.find('.datepicker-months td').attr('class','disabled');
+			// console.write('fillMonths');
 		},
 		
 		fill: function() {
@@ -215,6 +217,7 @@
 				} else if ((prevM > month && prevY === year) || prevY > year) {
 					clsName += ' new';
 				}
+
 				if (prevMonth.valueOf() === currentDate) {
 					clsName += ' active';
 				}
@@ -226,14 +229,45 @@
 			}
 			this.picker.find('.datepicker-days tbody').empty().append(html.join(''));
 			var currentYear = this.date.getFullYear();
-			
+
 			var months = this.picker.find('.datepicker-months')
 						.find('th:eq(1)')
 							.text(year)
 							.end()
 						.find('span').removeClass('active');
-			if (currentYear === year) {
+			var nowDateTemp = new Date();
+
+			if (nowDateTemp.getFullYear() == year) {
 				months.eq(this.date.getMonth()).addClass('active');
+				var monthSpans = this.picker.find('.datepicker-months .month');
+				for (var i = 0 ; i < monthSpans.length;i++){
+					$(monthSpans[i]).attr('class','month');
+					$(monthSpans[i]).attr('style','');
+				}
+				// alert(monthSpans.length);
+				for (var i = 0 ; i < monthSpans.length;i++){
+					
+					if (i >= nowDateTemp.getMonth()){
+						$(monthSpans[i]).attr('class','month disabled');
+						$(monthSpans[i]).attr('style','color:rgb(153, 153, 153)');
+					}
+				}
+			}else if (year > nowDateTemp.getFullYear()){
+				months.eq(this.date.getMonth()).addClass('active');
+				var monthSpans = this.picker.find('.datepicker-months .month');
+
+				for (var i = 0 ; i < monthSpans.length;i++){
+					$(monthSpans[i]).attr('class','month disabled');
+					$(monthSpans[i]).attr('style','color:rgb(153, 153, 153)');
+				}
+			}else if (year < nowDateTemp.getFullYear()){
+				months.eq(this.date.getMonth()).addClass('active');
+				var monthSpans = this.picker.find('.datepicker-months .month');
+
+				for (var i = 0 ; i < monthSpans.length;i++){
+					$(monthSpans[i]).attr('class','month');
+					$(monthSpans[i]).attr('style','');
+				}
 			}
 			
 			html = '';
@@ -275,6 +309,9 @@
 						}
 						break;
 					case 'span':
+						if (target.is('.disabled')){
+							break;
+						}
 						if (target.is('.month')) {
 							var month = target.parent().find('span').index(target);
 							this.viewDate.setMonth(month);

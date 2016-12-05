@@ -29,4 +29,3 @@ if __name__=='__main__':
     s = zerorpc.Server(Interface())
     s.bind("tcp://0.0.0.0:4242")
     s.run()
-	

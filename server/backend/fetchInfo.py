@@ -134,6 +134,13 @@ class FetchInfo(Thread):
         slaveHost = obtain_Slave_IP_PORT(taskID)
         return slaveHost
 
+    def task_to_container(self, taskID):
+        slaveHost = self.fetchHost(taskID)
+        if slaveHost:
+            container_id = obtain_container_path(taskID, slaveHost)
+            ans = getHttpConnection(slaveHost.split(":")[0], slaveHost.split(":")[1], '/containers/json?all=1&before=%s&after=%s&size=1'%(container_id, container_id))
+            print ans
+
     def run(self):
         while True:
             self.fetchMesosInfo()
@@ -153,12 +160,13 @@ if __name__ == '__main__':
     initDB()
     fetch = FetchInfo()
     
-    #fetch.fetchHost('ct:1479283558330:0:test-11-16-22:')
+    ret =  fetch.task_to_container('ct:1479283558330:0:test-11-16-22:')
+    print ret
     #fetch.fetchUserJobs()
     #fetch.dumpJobs()
     #fetch.dumpTasks()
     #fetch.start()
     #fetch.join()
-    service = zerorpc.Server(FetchInfo())
-    service.bind("tcp://0.0.0.0:4243")
-    service.run()
+    #service = zerorpc.Server(FetchInfo())
+    #service.bind("tcp://0.0.0.0:4243")
+    #service.run()

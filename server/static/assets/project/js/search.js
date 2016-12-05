@@ -3,12 +3,12 @@ $(document).ready(function(){
     $('#daliySearchTypeSelect').on('change',function(){
          var daliySearchType = $('#daliySearchTypeSelect').val();
          if ('keyword' == daliySearchType){
-         	$('#daliyKwDiv').attr('class','form-group');
-         	$('#daliyDpDiv').attr('class','form-group hide');
+         	$('#daliyKwDiv').attr('class','');
+         	$('#daliyDpDiv').attr('class','hide');
          	dataTable.fnClearTable();
          }else{
-         	$('#daliyKwDiv').attr('class','form-group hide')
-         	$('#daliyDpDiv').attr('class','form-group');
+         	$('#daliyKwDiv').attr('class','hide')
+         	$('#daliyDpDiv').attr('class','');
          	dataTable.fnClearTable();
          }
     });
@@ -39,14 +39,16 @@ $(document).ready(function(){
          	    alert('input can\'t be empty')
          	}
          }else if ('date' == daliySearchType){
-         	var date = $('#daliyDatepicker').val();
-         	if (date){
+         	var startDate = $('#daliyDatepickerStart').val();
+             var endDate = $('#daliyDatepickerEnd').val();
+         	if (startDate && endDate ){
          	     $.ajax({
          	         type: 'GET',
                          url:'searchDailyBill',
                          async: false,
                          data:{
-                         	keyword:date,
+                         	start_date:startDate,
+                         end_date:endDate,
                          	type:'date'
                          },
                          error:function(){
@@ -83,11 +85,11 @@ $(document).ready(function(){
          }
     });
 
-   if ($('#daliyDatepicker').length > 0){
+   if ($('#daliyDatepickerStart').length > 0){
 	var nowTemp = new Date();
 	var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
 	 
-	var checkin = $('#daliyDatepicker').datepicker({
+	var checkin = $('#daliyDatepickerStart').datepicker({
 	  format:'yyyy-mm-dd',
 	  onRender: function(date) {
 		return date.valueOf()  >= now.valueOf() ? 'disabled' : '';
@@ -95,7 +97,23 @@ $(document).ready(function(){
 	}).on('changeDate', function(ev) {
 	  checkin.hide();
 	  dataTable.fnClearTable();
+               $('#daliyDatepickerEnd')[0].focus();
 	}).data('datepicker');
+    }
+
+    if ($('#daliyDatepickerEnd').length > 0){
+    var nowTemp = new Date();
+    var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+     
+    var checkout = $('#daliyDatepickerEnd').datepicker({
+      format:'yyyy-mm-dd',
+      onRender: function(date) {
+        return date.valueOf()  >= now.valueOf() ? 'disabled' : '';
+      }
+    }).on('changeDate', function(ev) {
+      checkout.hide();
+      dataTable.fnClearTable();
+    }).data('datepicker');
     }
 
 
@@ -104,12 +122,12 @@ $(document).ready(function(){
     $('#monthlySearchTypeSelect').on('change',function(){
          var monthlySearchType = $('#monthlySearchTypeSelect').val();
          if ('keyword' == monthlySearchType){
-         	$('#monthlyKwDiv').attr('class','form-group');
-         	$('#monthlyDpDiv').attr('class','form-group hide');
+         	$('#monthlyKwDiv').attr('class','');
+         	$('#monthlyDpDiv').attr('class','hide');
          	monthlyDataTable.fnClearTable();
          }else{
-         	$('#monthlyKwDiv').attr('class','form-group hide')
-         	$('#monthlyDpDiv').attr('class','form-group');
+         	$('#monthlyKwDiv').attr('class','hide')
+         	$('#monthlyDpDiv').attr('class','');
          	monthlyDataTable.fnClearTable();
          }
     });
@@ -140,14 +158,16 @@ $(document).ready(function(){
          	    alert('input can\'t be empty')
          	}
          }else if ('date' == monthlySearchType){
-         	var date = $('#monthlyDatepicker').val();
-         	if (date){
+         	var startMon = $('#monthlyDatepickerStart').val();
+             var endMon = $('#monthlyDatepickerEnd').val();
+         	if (startMon && endMon){
          	     $.ajax({
          	         type: 'GET',
                          url:'searchMonthlyBill',
                          async: false,
                          data:{
-                         	keyword:date,
+                         	start_mon:startMon,
+                         end_mon:endMon,
                          	type:'date'
                          },
                          error:function(){
@@ -183,44 +203,62 @@ $(document).ready(function(){
          	}
          }
     });
-    var monthlyNowTemp = new Date();
-    var year = monthlyNowTemp.getFullYear();
-    if (monthlyNowTemp.getMonth()+1> 12){
-        year = year+1;
-    }
+    // var monthlyNowTemp = new Date();
+    // var year = monthlyNowTemp.getFullYear();
+    // if (monthlyNowTemp.getMonth()+1> 12){
+    //     year = year+1;
+    // }
 
-    var month =  (monthlyNowTemp.getMonth()+1)%12;
-    // alert(year+'-'+month);
-     var monthlyNow = new Date(year, month,1, 0, 0, 0, 0);
-    $('.month').datetimepicker({
-        format:'yyyy-mm',
-        language:  'zh-CN',
-        endDate:'2016-12',
-        weekStart: 1,
-        todayBtn:  1,
-        autoclose: 1,
-        todayHighlight: 1,
-        startView: 3,
-        minView: 3,
-        maxView: 3,
-        forceParse: 0
-    });
+    // var month =  (monthlyNowTemp.getMonth()+1)%12;
+    // // alert(year+'-'+month);
+    //  var monthlyNow = new Date(year, month,1, 0, 0, 0, 0);
+    // $('.month').datetimepicker({
+    //     format:'yyyy-mm',
+    //     language:  'zh-CN',
+    //     endDate:'2016-12',
+    //     weekStart: 1,
+    //     todayBtn:  1,
+    //     autoclose: 1,
+    //     todayHighlight: 1,
+    //     startView: 3,
+    //     minView: 3,
+    //     maxView: 3,
+    //     forceParse: 0
+    // });
 
 
- //   if ($('#monthlyDatepicker').length > 0){
-	// var monthlyNowTemp = new Date();
-	// var monthlyNow = new Date(monthlyNowTemp.getFullYear(), monthlyNowTemp.getMonth(), monthlyNowTemp.getDate(), 0, 0, 0, 0);
+   if ($('#monthlyDatepickerStart').length > 0){
+	var monthlyNowTemp = new Date();
+	var monthlyNow = new Date(monthlyNowTemp.getFullYear(), monthlyNowTemp.getMonth(), monthlyNowTemp.getDate(), 0, 0, 0, 0);
 	 
-	// var monthlyCheckin = $('#monthlyDatepicker').datepicker({
-	//   format:'yyyy-mm',
-	//   viewMode: 'months',
- //                minViewMode:'months',
-	//   onRender: function(date) {
-	// 	return '';
-	//   },
-	// }).on('changeDate', function(ev) {
-	//   monthlyCheckin.hide();
-	//   monthlyDataTable.fnClearTable();
-	// }).data('datepicker');
- //    }
+	var monthlyCheckin = $('#monthlyDatepickerStart').datepicker({
+	  format:'yyyy-mm',
+	  viewMode: 'months',
+                minViewMode:'months',
+	  onRender: function(date) {
+		return '';
+	  },
+	}).on('changeDate', function(ev) {
+
+	  monthlyCheckin.hide();
+	  monthlyDataTable.fnClearTable();
+               $('#monthlyDatepickerEnd')[0].focus();
+	}).data('datepicker');
+    }
+    if ($('#monthlyDatepickerEnd').length > 0){
+    var monthlyNowTemp = new Date();
+    var monthlyNow = new Date(monthlyNowTemp.getFullYear(), monthlyNowTemp.getMonth(), monthlyNowTemp.getDate(), 0, 0, 0, 0);
+     
+    var monthlyCheckout = $('#monthlyDatepickerEnd').datepicker({
+      format:'yyyy-mm',
+      viewMode: 'months',
+                minViewMode:'months',
+      onRender: function(date) {
+        return '';
+      },
+    }).on('changeDate', function(ev) {
+      monthlyCheckout.hide();
+      monthlyDataTable.fnClearTable();
+    }).data('datepicker');
+    }
 });

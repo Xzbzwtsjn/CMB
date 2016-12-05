@@ -10,6 +10,11 @@ function GetRequest() {
     } 
     return theRequest; 
 } 
+function toPercent(point){
+    var str=Number(point*100).toFixed(1);
+    str+="%";
+    return str;
+}
 
 $(document).ready(function(){
      var params = GetRequest() ;
@@ -33,10 +38,10 @@ $(document).ready(function(){
 	         	    for (var i = 0 ; i < data.taskList.length ; i++){
 	         	       dataTable.fnAddData([
 		 	 data.taskList[i].TaskID,
-		        	data.taskList[i].ResourceUsage[0].CPU,
-		        	data.taskList[i].ResourceUsage[0].MEM,
-		        	data.taskList[i].ResourceUsage[0].NET,
-		        	data.taskList[i].ResourceUsage[0].IO
+		        	toPercent(data.taskList[i].ResourceUsage[0].CPU),
+		        	toPercent(data.taskList[i].ResourceUsage[0].MEM),
+		        	toPercent(data.taskList[i].ResourceUsage[0].NET),
+		        	toPercent(data.taskList[i].ResourceUsage[0].IO)
 		        	],true);
 	         	    }
 		        	

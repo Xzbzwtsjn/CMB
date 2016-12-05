@@ -11,11 +11,20 @@ function GetRequest() {
     return theRequest; 
 } 
 
+function toPercent(point){
+    var str=Number(point*100).toFixed(1);
+    str+="%";
+    return str;
+}
+
 $(document).ready(function(){
      var params = GetRequest() ;
+
+
      if (params){
          var monthParams = params['month'];
          if (monthParams){
+             
          	$.ajax({
          	         type: 'GET',
                          url:'monthlyBill',
@@ -50,15 +59,15 @@ $(document).ready(function(){
                          	    $('#ReservedInstance').text(data.ReservedInstance);
                          	    $('#ApplicationType').text(data.ApplicationType);
 
-                         	    $('#Resource_Usage_CPU').text(data.Resource_Usage[0].CPU);
-                         	    $('#Resource_Usage_MEM').text(data.Resource_Usage[0].MEM);
-                         	    $('#Resource_Usage_NET').text(data.Resource_Usage[0].NET);
-                         	    $('#Resource_Usage_IO').text(data.Resource_Usage[0].IO);
+                         	    $('#Resource_Usage_CPU').text(toPercent(data.Resource_Usage[0].CPU));
+                         	    $('#Resource_Usage_MEM').text(toPercent(data.Resource_Usage[0].MEM));
+                         	    // $('#Resource_Usage_NET').text(toPercent(data.Resource_Usage[0].NET));
+                         	    // $('#Resource_Usage_IO').text(toPercent(data.Resource_Usage[0].IO));
 
                          	    $('#Resource_Request_CPU').text(data.Resource_Request[0].CPU[0].cores+'核-'+data.Resource_Request[0].CPU[0].Frequency+"GHz");
-                         	    $('#Resource_Request_MEM').text(data.Resource_Request[1].MEM[0].size+'GB');
-                         	    $('#Resource_Request_NET').text(data.Resource_Request[2].NET[0].size);
-                         	    $('#Resource_Request_IO').text(data.Resource_Request[3].IO[0].size);
+                         	    $('#Resource_Request_MEM').text(data.Resource_Request[1].MEM[0].size);
+                         	    // $('#Resource_Request_NET').text(data.Resource_Request[2].NET[0].size);
+                         	    // $('#Resource_Request_IO').text(data.Resource_Request[3].IO[0].size);
 
                          	    $('#Service_Usage_Docker_Registry').text(data.Service_Usage[0].Docker_Registry);
                          	    $('#Service_Usage_Load_Average').text(data.Service_Usage[0].Load_Average);
@@ -69,16 +78,37 @@ $(document).ready(function(){
                          	    $('#BillType').text(data.BillType);
                          	    $('#ID').text(data.ID);
                          	    $('#Amount').text(data.Amount);
+                              var events = [];
+                              for (var i  = 0 ; i < data.Rough_dailyBill[0].days.length;i++){
+                                  events.push({
+                                    title:data.Rough_dailyBill[0].days[i].amount,
+                                    start:data.Rough_dailyBill[0].days[i].date
+                                  })
+                              }
+                              
+                              $('#dayBillsCalendar').fullCalendar({
+                                defaultDate: monthParams+'-01',
+                                header: {
+                                    left: '',
+                                    center: '',
+                                    right: ''
+                                },
+                                events:events,
+                                eventClick:function(calEvent, jsEvent, view){
+                                    window.location.href = 'daliyBillDetail?date='+calEvent.start.format();
+                                }
 
-                         	    for (var i = 1 ; i <= 31 ; i++){
-                         	        var dayBiilAmount = data.Rough_dailyBill[0].days[0][''+i];
-                         	        if (dayBiilAmount){
-                         	        	$('#dayBillAmount'+i).text(dayBiilAmount);
-                         	        	$('#dayBillHref'+i).attr('href','daliyBillDetail?date='+monthParams+'-'+i);
-                         	        }else{
-                         	        	$('#dayBillAmount'+i).text('None');
-                         	        }
-                         	    }
+                             });
+
+                         	    // for (var i = 1 ; i <= 31 ; i++){
+                         	    //     var dayBiilAmount = data.Rough_dailyBill[0].days[0][''+i];
+                         	    //     if (dayBiilAmount){
+                         	    //     	$('#dayBillAmount'+i).text(dayBiilAmount);
+                         	    //     	$('#dayBillHref'+i).attr('href','daliyBillDetail?date='+monthParams+'-'+i);
+                         	    //     }else{
+                         	    //     	$('#dayBillAmount'+i).text('None');
+                         	    //     }
+                         	    // }
                          	    $('#dayBilltotal').text(data.Rough_dailyBill[1].total);
                          	}
                          }

@@ -36,4 +36,4 @@ if __name__ == '__main__':
         from sqlite_util import initDB
         initDB()
     app = create_app()
-    run_simple('127.0.0.1', 5000, app, use_debugger=True, use_reloader=True)
+    run_simple('172.29.152.185', 5000, app, use_debugger=True, use_reloader=True)

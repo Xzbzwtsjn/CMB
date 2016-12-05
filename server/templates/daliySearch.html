@@ -75,6 +75,7 @@
 						            <li><a href="monthlySearch">月账单查询</a></li>
 						          </ul>
 						        </li>
+						         <li><a href="rankingList">排行榜</a></li>
 						        <li><a href="resources">资源状态</a></li>
 						        <li><a href="policy">计费规则</a></li>
 						 </ul>
@@ -121,14 +122,29 @@
 									</select>
 								</div>
 							</div>
-							<div class="col-md-6">
+							<div class="hide"  id="daliyKwDiv">
+								<div class="col-md-6">
+									<div class="form-group">
+										<input type="text" class="form-control rounded" placeholder="JobID" id="daliyKeywordInput">
+									</div>
+								</div>
+							</div>
+							<div  id="daliyDpDiv">
+								<div class="form-group col-md-3">
+									<input type="text" class="form-control" id="daliyDatepickerStart" placeholder="开始日期">
+								</div>
+								<div class="form-group col-md-3">
+									<input type="text" class="form-control" id="daliyDatepickerEnd" placeholder="结束日期">
+								</div>
+							</div>
+							<!-- <div class="col-md-6">
 								<div class="form-group hide" id="daliyKwDiv">
 									<input type="text" class="form-control rounded" placeholder="JobID" id="daliyKeywordInput">
 								</div>
 								<div class="form-group" id="daliyDpDiv">
 									<input type="text" class="form-control" id="daliyDatepicker" placeholder="选择时间">
-								</div><!-- /.form-group -->
-							</div>
+								</div>
+							</div> -->
 							<div class="col-md-2 text-right">
 								<button class="btn btn-info" style="width:100px;" id="daliysearchBtn">搜索</button>
 							</div>
@@ -144,7 +160,7 @@
 												<th>编号</th>
 												<th>生成日期</th>
 												<th>类型</th>
-												<th>总消费</th>
+												<th>总消费(元)</th>
 												<th>操作</th>
 											</tr>
 										</thead>

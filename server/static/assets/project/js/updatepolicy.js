@@ -31,7 +31,7 @@ function change2Edit(obj){
          	alert('connect falied!');
          },
          success:function(data){
-         	if ('success' == data){
+         	if ('Operation Success' == data){
          	    $(tds[0]).text(userprice);
          	    $(tds[1]).text(baseprice);
          	    $(tds[2]).text(cpu);
@@ -80,8 +80,8 @@ function changeWeight2Edit(obj){
          	if ('Operation Success' == data){
 
          	    $(tds[1]).text(value);
-         	    var another = Math.round((1-value)*100)/100;
-         	    $(tds[3]).text(another);
+         	    // var another = Math.round((1-value)*100)/100;
+         	    // $(tds[3]).text(another);
 
          	    alert('update success');
          	    a.text('修改');

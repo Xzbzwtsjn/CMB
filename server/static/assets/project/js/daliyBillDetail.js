@@ -41,7 +41,6 @@ $(document).ready(function(){
                                         jobListTable.fnAddData([
                                                     data.Jobs[i].JobID,
                                                     data.Jobs[i].JobName,
-                                                    data.Jobs[i].command,
                                                     data.Jobs[i].lastSuccess,
                                                     '<td><a href=\'tasklist?jobID='+ data.Jobs[i].JobID+'\'>查看任务</a></td>'
                                                     ],true);

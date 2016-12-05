@@ -97,3 +97,44 @@ def obtain_Slave_IP_PORT(taskID):
         else:
             return None
             conn.close()
+
+def obtain_container_path(taskID, slave):
+    #slave = obtain_Slave_IP_PORT(task)
+    print "slaveID: ", slave
+    if slave == None:
+        return None
+    try:
+        conn = httplib.HTTPConnection(slave)
+        conn.request("GET", "/state.json")
+        r1=conn.getresponse()
+    except Exception,e:
+        print 'get http failed\n'
+
+    if r1.status==200:
+        raw = r1.read()
+        data = json.loads(raw)
+        for item in data['frameworks']:
+            if item['name']=="chronos-2.4.0":
+                for executors in item['executors']:
+                    for task in executors['tasks']:
+                        if task['id'] == taskID:
+                            return executors['container'], slave
+                            conn.close()
+                for executors in item['completed_executors']:
+                    for task in executors['completed_tasks']:
+                        if task['id'] == taskID:
+                            return executors['container'], slave
+                            conn.close()
+
+        for item in data['completed_frameworks']:
+            if item['name']=="chronos-2.4.0":
+                for completed_executors in item['completed_executors']:
+                    for task in completed_executors['completed_tasks']:
+                        if task['id'] == taskID:
+                            return completed_executors['container'], slave
+                            conn.close()
+        return None
+        conn.close()
+    else:
+        return None
+        conn.close()

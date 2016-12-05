@@ -76,6 +76,7 @@
 						            <li><a href="monthlySearch">月账单查询</a></li>
 						          </ul>
 						        </li>
+						         <li><a href="rankingList">排行榜</a></li>
 						        <li><a href="resources">资源状态</a></li>
 						        <li><a href="policy">计费规则</a></li>
 						 </ul>
@@ -122,19 +123,31 @@
 									</select>
 								</div>
 							</div>
-							<div class="col-md-6">
-								<div class="form-group hide" id="monthlyKwDiv">
-									<input type="text" class="form-control rounded" placeholder="JobID" id="monthlyKeywordInput">
+
+							<div class="hide"  id="monthlyKwDiv">
+								<div class="col-md-6">
+									<div class="form-group">
+										<input type="text" class="form-control rounded" placeholder="JobID" id="monthlyKeywordInput">
+									</div>
 								</div>
-								<div class="form-group" id="monthlyDpDiv">
-								                <div class="input-group date month" data-date="" data-date-format="yyyy-mm" data-link-field="monthlyDatepicker" data-link-format="yyyy-mm-dd">
-								                    <input class="form-control" size="16" type="text" value="" readonly>
-								                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
-									     <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
-								                </div>
-									<input type="hidden" id="monthlyDatepicker" value="" /><br/>
-								</div><!-- /.form-group -->
 							</div>
+							<div id="monthlyDpDiv">
+								<div class="form-group col-md-3">
+									<input type="text" class="form-control" id="monthlyDatepickerStart" placeholder="开始月份">
+								</div>
+								<div class="form-group col-md-3">
+									<input type="text" class="form-control" id="monthlyDatepickerEnd" placeholder="结束月份">
+								</div>
+							</div>
+
+<!-- 							<div class="col-md-6">
+								<div class="form-group hide" >
+									
+								</div>
+								<div class="form-group">
+								    
+								</div>
+							</div> -->
 							<div class="col-md-2 text-right">
 								<button class="btn btn-info" style="width:100px;" id="monthlysearchBtn">搜索</button>
 							</div>
@@ -150,7 +163,7 @@
 												<th>编号</th>
 												<th>生成日期</th>
 												<th>类型</th>
-												<th>总消费</th>
+												<th>总消费(元)</th>
 												<th>操作</th>
 											</tr>
 										</thead>

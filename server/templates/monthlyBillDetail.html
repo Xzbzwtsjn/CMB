@@ -32,8 +32,10 @@
 		<link href="static/assets/plugins/slider/slider.min.css" rel="stylesheet">
 		<link href="static/assets/plugins/salvattore/salvattore.css" rel="stylesheet">
 		<link href="static/assets/plugins/toastr/toastr.css" rel="stylesheet">
-		<link href="static/assets/plugins/fullcalendar/fullcalendar/fullcalendar.css" rel="stylesheet">
-		<link href="static/assets/plugins/fullcalendar/fullcalendar/fullcalendar.print.css" rel="stylesheet" media="print">
+<!-- 		<link href="static/assets/plugins/fullcalendar/fullcalendar/fullcalendar.css" rel="stylesheet">
+		<link href="static/assets/plugins/fullcalendar/fullcalendar/fullcalendar.print.css" rel="stylesheet" media="print"> -->
+		<link href='static/assets/plugins/fullcalendarv2/fullcalendar.css' rel='stylesheet' />
+		<link href='static/assets/plugins/fullcalendarv2/fullcalendar.print.css' rel='stylesheet' media='print' />
 		
 		<!-- MAIN CSS (REQUIRED ALL PAGE)-->
 		<link href="static/assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
@@ -75,6 +77,7 @@
 						            <li><a href="monthlySearch">月账单查询</a></li>
 						          </ul>
 						        </li>
+						         <li><a href="rankingList">排行榜</a></li>
 						        <li><a href="resources">资源状态</a></li>
 						        <li><a href="policy">计费规则</a></li>
 						 </ul>
@@ -130,7 +133,7 @@
 											<td><span id="ID"></span></td>
 											<td>姓名</td>
 											<td><span id="name"></span></td>
-											<td>计费周期</td>
+											<td>月份</td>
 											<td colspan="2"><span id="Cycle"></span></td>
 										</tr>
 										<tr>
@@ -145,13 +148,7 @@
 											<td colspan="2">是否预付费</td>
 											<td colspan="2"><span id="prepaid"></span></td>
 											<td>金额</td>
-											<td colspan="2"><span id="Amount"></span></td>
-										</tr>
-										<tr>
-											<td colspan="2">实例数</td>
-											<td colspan="2"><span id="Instance"></span></td>
-											<td>预留实例数</td>
-											<td colspan="2"><span id="ReservedInstance"></span></td>
+											<td colspan="2"><span id="Amount"></span>元</td>
 										</tr>
 										<tr>
 											<td colspan="7"><h5>资源申请表</h5></td>
@@ -160,18 +157,23 @@
 											<td colspan="2">CPU资源</td>
 											<td colspan="2"><span id="Resource_Request_CPU"></span></td>
 											<td>内存资源</td>
-											<td colspan="2"><span id="Resource_Request_MEM"></span></td>
+											<td colspan="2"><span id="Resource_Request_MEM"></span>GB</td>
 										</tr>
 										<tr>
 											<td colspan="2">网络资源</td>
-											<td colspan="2"><span id="Resource_Request_NET"></span></td>
-											<td>IO资源</td>
-											<td colspan="2"><span id="Resource_Request_IO"></span></td>
+											<td colspan="2"><span id="Resource_Request_NET">uncompleted</span>MB</td>
+											<td>硬盘资源</td>
+											<td colspan="2"><span id="Resource_Request_IO">uncompleted</span>GB</td>
 										</tr>									
 										<tr>
 											<td colspan="7"><h5>日账单明细（可点入详细查看）</h5></td>
 										</tr>
 										<tr>
+											<td colspan="7">
+												<div id="dayBillsCalendar" class="fc fc-unthemed fc-ltr"></div>
+											</td>
+										</tr>
+										<!-- <tr>
 											<td><a href="#" id="dayBillHref1">1</a></td>
 											<td><a href="#" id="dayBillHref2">2</a></td>
 											<td><a href="#" id="dayBillHref3">3</a></td>
@@ -255,35 +257,35 @@
 											<td><span id="dayBillAmount29"></span></td>
 											<td><span id="dayBillAmount30"></span></td>
 											<td><span id="dayBillAmount31"></span></td>
-										</tr>
+										</tr> -->
 										<tr>
 											<td colspan="7"><h5>实际资源使用率</h5></td>
 										</tr>
 										<tr>
-											<td colspan="2">CPU</td>
+											<td colspan="2">CPU（百分比）</td>
 											<td colspan="2"><span id="Resource_Usage_CPU"></span></td>
-											<td>内存</td>
+											<td>内存（百分比）</td>
 											<td colspan="2"><span id="Resource_Usage_MEM"></span></td>
 										</tr>
 										<tr>
-											<td colspan="2">网络</td>
-											<td colspan="2"><span id="Resource_Usage_NET"></span></td>
-											<td>磁盘</td>
-											<td colspan="2"><span id="Resource_Usage_IO"></span></td>
+											<td colspan="2">网络（百分比）</td>
+											<td colspan="2"><span id="Resource_Usage_NET">uncompleted</span></td>
+											<td>磁盘（百分比）</td>
+											<td colspan="2"><span id="Resource_Usage_IO">uncompleted</span></td>
 										</tr>
 										<tr>
 											<td colspan="7"><h5>实际服务使用量（次/项）</h5></td>
 										</tr>
 										<tr>
-											<td colspan="2">镜像服务</td>
+											<td colspan="2">镜像服务（次）</td>
 											<td colspan="2"><span id="Service_Usage_Docker_Registry"></span></td>
-											<td>负载均衡服务</td>
+											<td>负载均衡服务（次）</td>
 											<td colspan="2"><span id="Service_Usage_Load_Average"></span></td>
 										</tr>
 										<tr>
-											<td colspan="2">数据备份服务</td>
+											<td colspan="2">数据备份服务（次）</td>
 											<td colspan="2"><span id="Service_Usage_Data_Backup"></span></td>
-											<td>服务小计</td>
+											<td>服务小计（元）</td>
 											<td colspan="2"><span id="Service_Usage_Service_Billing">sss</span></td>
 										</tr>
 										<tr>
@@ -375,9 +377,12 @@
 		<script src="static/assets/plugins/toastr/toastr.js"></script>
 		
 		<!-- FULL CALENDAR JS -->
-		<script src="static/assets/plugins/fullcalendar/lib/jquery-ui.custom.min.js"></script>
+		<!-- <script src="static/assets/plugins/fullcalendar/lib/jquery-ui.custom.min.js"></script>
 		<script src="static/assets/plugins/fullcalendar/fullcalendar/fullcalendar.min.js"></script>
-		<script src="static/assets/js/full-calendar.js"></script>
+		<script src="static/assets/js/full-calendar.js"></script> -->
+		<script src='static/assets/plugins/fullcalendarv2/lib/moment.min.js'></script>
+		<script src='static/assets/plugins/fullcalendarv2/fullcalendar.min.js'></script>
+		<script src='static/assets/plugins/fullcalendarv2/locale/zh-cn.js'></script>
 		
 		<!-- EASY PIE CHART JS -->
 		<script src="static/assets/plugins/easypie-chart/easypiechart.min.js"></script>

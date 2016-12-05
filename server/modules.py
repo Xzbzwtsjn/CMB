@@ -1,6 +1,7 @@
 import sys
 import os
-from datetime import datetime
+import datetime
+#from datetime import datetime
 from sqlalchemy import Column, Float, String, Integer, DateTime, create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
@@ -19,7 +20,7 @@ class MainPolicy(Base):
     userPrice = Column(Float, nullable=False)
     invalid = Column(Integer, nullable=False)
     opType = Column(String, nullable=False)
-    modifiedTime = Column(DateTime, default=datetime.now, nullable=False)
+    modifiedTime = Column(DateTime, default=datetime.datetime.now(), nullable=False)
 
 
 class AUXMainPolicy(Base):
@@ -33,7 +34,7 @@ class AUXMainPolicy(Base):
     userPrice = Column(Float, nullable=False)
     invalid = Column(Integer, nullable=False)
     opType = Column(Integer, nullable=False)
-    modifiedTime =Column(DateTime, default=datetime.now, nullable=False)
+    modifiedTime =Column(DateTime, default=datetime.datetime.now(), nullable=False)
 
 
 class CPUPolicy(Base):
@@ -45,7 +46,7 @@ class CPUPolicy(Base):
     unitPrice = Column(Float, nullable=False)
     invalid = Column(Integer, nullable=False)
     opType = Column(Integer, nullable=False)
-    modifiedTime = Column(DateTime, default=datetime.now, nullable=False)
+    modifiedTime = Column(DateTime, default=datetime.datetime.now(), nullable=False)
     def __repr__(self):
         return __tablename__
 
@@ -59,7 +60,7 @@ class AUXCPUPolicy(Base):
     unitPrice = Column(Float, nullable=False)
     invalid = Column(Integer, nullable=False)
     opType = Column(Integer, nullable=False)
-    modifiedTime = Column(DateTime, default=datetime.now, nullable=False)
+    modifiedTime = Column(DateTime, default=datetime.datetime.now(), nullable=False)
 
 
 class MemPolicy(Base):
@@ -71,7 +72,7 @@ class MemPolicy(Base):
     unitPrice = Column(Float, nullable=False)
     invalid =Column(Integer, nullable=False)
     opType = Column(Integer, nullable=False)
-    modifiedTime = Column(DateTime, default=datetime.now, nullable=False)
+    modifiedTime = Column(DateTime, default=datetime.datetime.now(), nullable=False)
 
 
 class AUXMemPolicy(Base):
@@ -83,7 +84,7 @@ class AUXMemPolicy(Base):
     unitPrice = Column(Float, nullable=False)
     invalid =Column(Integer, nullable=False)
     opType = Column(Integer, nullable=False)
-    modifiedTime = Column(DateTime, default=datetime.now, nullable=False)
+    modifiedTime = Column(DateTime, default=datetime.datetime.now(), nullable=False)
 
 
 class DiskPolicy(Base):
@@ -95,7 +96,7 @@ class DiskPolicy(Base):
     unitPrice = Column(Float, nullable=False)
     invalid = Column(Integer, nullable=False)
     opType = Column(Integer, nullable=False)
-    modifiedTime = Column(DateTime, default=datetime.now, nullable=False)
+    modifiedTime = Column(DateTime, default=datetime.datetime.now(), nullable=False)
 
 
 class AUXDiskPolicy(Base):
@@ -107,7 +108,7 @@ class AUXDiskPolicy(Base):
     unitPrice = Column(Float, nullable=False)
     invalid = Column(Integer, nullable=False)
     opType = Column(Integer, nullable=False)
-    modifiedTime = Column(DateTime, default=datetime.now, nullable=False)
+    modifiedTime = Column(DateTime, default=datetime.datetime.now(), nullable=False)
 
 
 class NetPolicy(Base):
@@ -119,7 +120,7 @@ class NetPolicy(Base):
     unitPrice = Column(Float, nullable=False)
     invalid = Column(Integer,nullable=False)
     opType = Column(Integer, nullable=False)
-    modifiedTime = Column(DateTime, default=datetime.now, nullable=False)
+    modifiedTime = Column(DateTime, default=datetime.datetime.now(), nullable=False)
 
 
 class AUXNetPolicy(Base):
@@ -131,7 +132,7 @@ class AUXNetPolicy(Base):
     unitPrice = Column(Float, nullable=False)
     invalid = Column(Integer,nullable=False)
     opType = Column(Integer, nullable=False)
-    modifiedTime = Column(DateTime, default=datetime.now, nullable=False)
+    modifiedTime = Column(DateTime, default=datetime.datetime.now(), nullable=False)
 
 
 class MeteringService(Base):
@@ -140,7 +141,7 @@ class MeteringService(Base):
     id = Column(Integer, primary_key=True)
     address = Column(String, nullable=False)
     author = Column(String(20), nullable=False)
-    modifiedTime = Column(DateTime, default=datetime.now, nullable=False)
+    modifiedTime = Column(DateTime, default=datetime.datetime.now(), nullable=False)
 
 
 class DataSource(Base):
@@ -159,7 +160,7 @@ class Pair(Base):
     key = Column(String, nullable=False)
     value = Column(String, nullable=False)
     author = Column(String(20), nullable=False)
-    modifiedTime = Column(DateTime, default=datetime.now, nullable=False)
+    modifiedTime = Column(DateTime, default=datetime.datetime.now(), nullable=False)
 
 
 class AUXPair(Base):
@@ -169,4 +170,4 @@ class AUXPair(Base):
     key = Column(String, nullable=False)
     value = Column(String, nullable=False)
     author = Column(String(20), nullable=False)
-    modifiedTime = Column(DateTime, default=datetime.now, nullable=False)
+    modifiedTime = Column(DateTime, default=datetime.datetime.now(), nullable=False)
