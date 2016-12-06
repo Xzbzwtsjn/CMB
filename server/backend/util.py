@@ -106,7 +106,7 @@ def obtain_container_path(taskID, slave):
     try:
         conn = httplib.HTTPConnection(slave)
         conn.request("GET", "/state.json")
-        r1=conn.getresponse()
+        r1 = conn.getresponse()
     except Exception,e:
         print 'get http failed\n'
 
@@ -118,12 +118,12 @@ def obtain_container_path(taskID, slave):
                 for executors in item['executors']:
                     for task in executors['tasks']:
                         if task['id'] == taskID:
-                            return executors['container'], slave
+                            return executors['container']
                             conn.close()
                 for executors in item['completed_executors']:
                     for task in executors['completed_tasks']:
                         if task['id'] == taskID:
-                            return executors['container'], slave
+                            return executors['container']
                             conn.close()
 
         for item in data['completed_frameworks']:
@@ -131,7 +131,8 @@ def obtain_container_path(taskID, slave):
                 for completed_executors in item['completed_executors']:
                     for task in completed_executors['completed_tasks']:
                         if task['id'] == taskID:
-                            return completed_executors['container'], slave
+                            print completed_executors['container']
+                            return completed_executors['container']
                             conn.close()
         return None
         conn.close()

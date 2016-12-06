@@ -1,12 +1,12 @@
 {"author":"admin","opType":"add","invalid":0,"data":
-	[{"cpu_norm":1,"mem_norm":1,"basePrice":10,"userPrice":0.1},
-	{"cpu_norm":1,"mem_norm":2,"basePrice":15,"userPrice":0.15},
-	{"cpu_norm":1,"mem_norm":4,"basePrice":20,"userPrice":0.2},
-	{"cpu_norm":2,"mem_norm":2,"basePrice":30,"userPrice":0.25},
-	{"cpu_norm":2,"mem_norm":4,"basePrice":40,"userPrice":0.3},
-	{"cpu_norm":2,"mem_norm":8,"basePrice":50,"userPrice":0.35},
-	{"cpu_norm":4,"mem_norm":4,"basePrice":60,"userPrice":0.4},
-	{"cpu_norm":4,"mem_norm":8,"basePrice":70,"userPrice":0.45},
-	{"cpu_norm":8,"mem_norm":8,"basePrice":80,"userPrice":0.5}
+	[{"cpu_norm":1,"mem_norm":1,"basePrice":10,"monPrice":0.1,"aftPrice":0.2,"nigPrice":0.5},
+	{"cpu_norm":1,"mem_norm":2,"basePrice":15,"monPrice":0.15,"aftPrice":0.24,"nigPrice":0.52},
+	{"cpu_norm":1,"mem_norm":4,"basePrice":20,"monPrice":0.2,"aftPrice":0.26,"nigPrice":0.53},
+	{"cpu_norm":2,"mem_norm":2,"basePrice":30,"monPrice":0.25,"aftPrice":0.28,"nigPrice":0.55},
+	{"cpu_norm":2,"mem_norm":4,"basePrice":40,"monPrice":0.3,"aftPrice":0.29,"nigPrice":0.55},
+	{"cpu_norm":2,"mem_norm":8,"basePrice":50,"monPrice":0.35,"aftPrice":0.29,"nigPrice":0.55},
+	{"cpu_norm":4,"mem_norm":4,"basePrice":60,"monPrice":0.4,"aftPrice":0.29,"nigPrice":0.57},
+	{"cpu_norm":4,"mem_norm":8,"basePrice":70,"monPrice":0.45,"aftPrice":0.30,"nigPrice":0.59},
+	{"cpu_norm":8,"mem_norm":8,"basePrice":80,"monPrice":0.5,"aftPrice":0.32,"nigPrice":0.6}
 	]
 }

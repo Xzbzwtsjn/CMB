@@ -18,6 +18,7 @@ class Views:
         # render templates
         self.url_map.append(Rule("/about", endpoint='about'))
         self.url_map.append(Rule("/index",endpoint='daliySearch'))
+        self.url_map.append(Rule("/search", endpoint='search'))
         self.url_map.append(Rule("/daliySearch", endpoint='daliySearch'))
         self.url_map.append(Rule("/monthlySearch", endpoint='monthlySearch'))
         self.url_map.append(Rule("/policy", endpoint='policy'))
@@ -99,7 +100,9 @@ class Views:
                 po['cpu'] = row.cpu_norm
                 po['mem'] = row.mem_norm
                 po['basePrice'] = row.basePrice
-                po['userPrice'] = row.userPrice
+                po['monPrice'] = row.monPrice
+                po['aftPrice'] = row.aftPrice
+                po['nigPrice'] = row.nigPrice
                 pe = {}
                 pe['%s'%(i)] = po
                 ret.append(pe)
@@ -114,8 +117,21 @@ class Views:
             cpu = request.args['cpu']
             mem = request.args['mem']
             basePrice = request.args['base']
-            userPrice = request.args['use']
-            item = self.session.query(MainPolicy).filter(MainPolicy.cpu_norm==cpu, MainPolicy.mem_norm==mem).update({'basePrice':basePrice, 'userPrice':userPrice})
+            if 'mon' in request.args.keys():
+                mon = request.args['mon']
+                item = self.session.query(MainPolicy).\
+                       filter(MainPolicy.cpu_norm==cpu, MainPolicy.mem_norm==mem).\
+                       update({'basePrice':basePrice, 'monPrice':mon})
+            if 'aft' in request.args.keys():
+                aft = request.args['aft']
+                item = self.session.query(MainPolicy).\
+                       filter(MainPolicy.cpu_norm==cpu, MainPolicy.mem_norm==mem).\
+                       update({'basePrice':basePrice, 'aftPrice':aft})
+            if 'nig' in request.args.keys():
+                nig = request.args['nig']
+                item = self.session.query(MainPolicy).\
+                       filter(MainPolicy.cpu_norm==cpu, MainPolicy.mem_norm==mem).\
+                       update({'basePrice':basePrice, 'nigPrice':nig})
             self.session.commit()
             return 'Operation Success'
         else:
@@ -223,10 +239,6 @@ class Views:
                begin_time = request.args['start_date']
                end_time = request.args['end_date']
                ret = self.checkDay(begin_time, end_time)
-               #content = json.load(open('./json/day_list.json'))
-               #for item in content:
-               #    item['Date'] = date
-               #    item['total'] = random.randint(15, 99)
                content = []
                i = 1
                for day in ret:
@@ -246,6 +258,26 @@ class Views:
                     job_ret.append(job_info)
                 ret = json.dumps(job_ret)
                 return ret
+    """
+    can not make searchs from image_name to job_name
+    """
+    @response
+    def seachByImages(self, request):
+        ret = ''
+        if request.method == 'GET':
+            image_name = request.args['image']
+            self.zero.connect(backEnd)
+            jobs = self.zero.get_jobs()
+            job_ret = []
+            for job in jobs:
+                job_info = {}
+                job_info["job_name"] = job
+                job_info['task_num'] = random.randint(1, 5)
+                job_info["job_cost"] = random.randint(12, 40)
+                job_ret.append(job_info)
+            ret = json.dumps(job_ret)
+            return ret
+
 
     @response
     def getDaibill(self, request):

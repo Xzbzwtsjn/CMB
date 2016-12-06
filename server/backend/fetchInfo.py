@@ -138,8 +138,9 @@ class FetchInfo(Thread):
         slaveHost = self.fetchHost(taskID)
         if slaveHost:
             container_id = obtain_container_path(taskID, slaveHost)
+            print container_id
             ans = getHttpConnection(slaveHost.split(":")[0], slaveHost.split(":")[1], '/containers/json?all=1&before=%s&after=%s&size=1'%(container_id, container_id))
-            print ans
+            return  ans
 
     def run(self):
         while True:
@@ -160,7 +161,7 @@ if __name__ == '__main__':
     initDB()
     fetch = FetchInfo()
     
-    ret =  fetch.task_to_container('ct:1479283558330:0:test-11-16-22:')
+    ret =  fetch.task_to_container('ct:1480766602841:0:test-12-04-0:')
     print ret
     #fetch.fetchUserJobs()
     #fetch.dumpJobs()

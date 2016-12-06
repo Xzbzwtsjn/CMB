@@ -1,7 +1,6 @@
 import sys
 import os
 import datetime
-#from datetime import datetime
 from sqlalchemy import Column, Float, String, Integer, DateTime, create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
@@ -17,7 +16,9 @@ class MainPolicy(Base):
     cpu_norm = Column(Integer, nullable=False)
     mem_norm = Column(Integer, nullable=False)
     basePrice = Column(Float, nullable=False)
-    userPrice = Column(Float, nullable=False)
+    monPrice = Column(Float, nullable=False)
+    aftPrice = Column(Float, nullable=False)
+    nigPrice = Column(Float, nullable=False)
     invalid = Column(Integer, nullable=False)
     opType = Column(String, nullable=False)
     modifiedTime = Column(DateTime, default=datetime.datetime.now(), nullable=False)
@@ -31,7 +32,9 @@ class AUXMainPolicy(Base):
     cpu_norm = Column(Integer, nullable=False)
     mem_norm = Column(Integer, nullable=False)
     basePrice = Column(Float, nullable=False)
-    userPrice = Column(Float, nullable=False)
+    monPrice = Column(Float, nullable=False)
+    aftPrice = Column(Float, nullable=False)
+    nigPrice = Column(Float, nullable=False)
     invalid = Column(Integer, nullable=False)
     opType = Column(Integer, nullable=False)
     modifiedTime =Column(DateTime, default=datetime.datetime.now(), nullable=False)

@@ -74,6 +74,7 @@
 						          <ul class="dropdown-menu" role="menu">
 						            <li><a href="daliySearch">日账单查询</a></li>
 						            <li><a href="monthlySearch">月账单查询</a></li>
+						            <li><a href="search">内容查询</a></li>
 						          </ul>
 						        </li>
 						         <li><a href="rankingList">排行榜</a></li>
@@ -115,39 +116,20 @@
 					  <div class="panel-body">
 						<div class="row">
 							<div class="col-md-1"></div>
-							<div class="col-md-2">
-								<div class="form-group">
-									<select class="form-control" tabindex="2" id="monthlySearchTypeSelect">					
-										<option value="date">时间</option>
-										<option value="keyword">关键词</option>
-									</select>
-								</div>
-							</div>
-
-							<div class="hide"  id="monthlyKwDiv">
-								<div class="col-md-6">
-									<div class="form-group">
-										<input type="text" class="form-control rounded" placeholder="JobID" id="monthlyKeywordInput">
-									</div>
-								</div>
-							</div>
 							<div id="monthlyDpDiv">
+								<div class="col-md-1">
+									<p style="margin-top: 5px;">开始月份</p>
+								</div>
 								<div class="form-group col-md-3">
 									<input type="text" class="form-control" id="monthlyDatepickerStart" placeholder="开始月份">
+								</div>
+								<div class="col-md-1">
+									<p style="margin-top: 5px;">结束月份</p>
 								</div>
 								<div class="form-group col-md-3">
 									<input type="text" class="form-control" id="monthlyDatepickerEnd" placeholder="结束月份">
 								</div>
 							</div>
-
-<!-- 							<div class="col-md-6">
-								<div class="form-group hide" >
-									
-								</div>
-								<div class="form-group">
-								    
-								</div>
-							</div> -->
 							<div class="col-md-2 text-right">
 								<button class="btn btn-info" style="width:100px;" id="monthlysearchBtn">搜索</button>
 							</div>
@@ -281,7 +263,7 @@
 		<!-- MAIN APPS JS -->
 		<script src="static/assets/js/apps.js"></script>
 		<script src="static/assets/js/demo-panel.js"></script>
-		<script src="static/assets/project/js/search.js"></script>
+		<script src="static/assets/project/js/dayAndMonthSearch.js"></script>
 
 	</body>
 </html>

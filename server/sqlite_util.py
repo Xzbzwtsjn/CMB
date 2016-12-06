@@ -16,7 +16,16 @@ def initDB():
     au = content['author']
     op = content['opType']
     inv = content['invalid']
+    print content
     for po in content['data']:
-        session.add(MainPolicy(author=au, opType=op, invalid=inv, cpu_norm=po['cpu_norm'], mem_norm=po['mem_norm'], basePrice=po['basePrice'], userPrice=po['userPrice']))
+        session.add(MainPolicy(author=au, \
+                               opType=op, \
+                               invalid=inv, \
+                               cpu_norm=po['cpu_norm'], \
+                               mem_norm=po['mem_norm'], \
+                               basePrice=po['basePrice'], \
+                               monPrice=po['monPrice'], \
+                               aftPrice=po['aftPrice'], \
+                               nigPrice=po['nigPrice']))
     session.commit()
     session.close()

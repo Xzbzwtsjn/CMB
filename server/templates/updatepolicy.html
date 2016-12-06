@@ -73,6 +73,7 @@
 						          <ul class="dropdown-menu" role="menu">
 						            <li><a href="daliySearch">日账单查询</a></li>
 						            <li><a href="monthlySearch">月账单查询</a></li>
+						            <li><a href="search">内容查询</a></li>
 						          </ul>
 						        </li>
 						         <li><a href="rankingList">排行榜</a></li>
@@ -108,119 +109,344 @@
 					  <li class="active">更新计费规则</li>
 					</ol>
 
-					<div class="panel panel-info">
+					<div class="panel with-nav-tabs panel-info">
+					  <div class="panel-heading">
+						<ul id="niscTab" class="nav nav-tabs">
+							<li class="active"><a href="#base" data-toggle="tab">固定策略</a></li>
+							<li class=""><a href="#morning" data-toggle="tab">可变策略(5:00-13:00)</a></li>
+							<li class=""><a href="#afternoon" data-toggle="tab">可变策略(13：00-21：00)</a></li>
+							<li class=""><a href="#night" data-toggle="tab">可变策略(21：00-5：00)</a></li>
+
+						</ul>
+					  </div>
+					  <div class="panel-body">
+						<div id="myTabContent" class="tab-content">
+							<div class="tab-pane active fade in" id="base">
+								<div class="row">
+						  			<div class="col-sm-1"></div>
+						  			<div class="col-sm-10">
+						  				<table class="nist-table table text-center" style="margin-top:20px;">
+											<tr>
+												<td colspan="7"><h4>云平台收费一览表</h4></td>
+											</tr>
+											<tr>
+												<td colspan="7"><h5>权重设置</h5></td>
+											</tr>
+											<tr>
+												<td>计算资源</td>
+												<td>0.5</td>
+												<td colspan="2">网络资源</td>
+												<td colspan="2">1-计算资源</td>
+												<td><a href="#" onclick="changeWeight2Edit(this)">修改</a></td>
+											</tr>
+											<tr>
+												<td colspan="7"><h5>总计</h5></td>
+											</tr>
+											<tr>
+												<td colspan="7">总计=(CPU_Price + K*hour)+ (Disk_Price + Q*hour)+(Net_Price & pre*IO)</td>
+											</tr>
+										</table>
+
+						  			</div>
+						  			<div class="col-sm-1"></div>
+						  		</div>
+							</div>
+							<div class="tab-pane fade" id="morning">
+								<div class="row">
+						  			<div class="col-sm-1"></div>
+						  			<div class="col-sm-10">
+						  				<table class="nist-table table text-center" style="margin-top:20px;">
+											<tr>
+												<td colspan="7"><h4>云平台收费一览表</h4></td>
+											</tr>		
+											<tr>
+												<td colspan="7"><h5>计算资源</h5></td>
+											</tr>
+											<tr id="computeResPreNodeMon">
+												<td>计算资源价格（元）</td>
+												<td>基础价格（元）</td>
+												<td colspan="2">CPU(核)</td>
+												<td colspan="2">内存（GB）</td>
+												<td>操作</td>
+											</tr>
+											<tr>
+												<td colspan="7"><h5>网络资源</h5></td>
+											</tr>
+											<tr>
+												<td>基础价格(元)</td>
+												<td>计费方式</td>
+												<td>规格</td>
+												<td>单位</td>
+												<td colspan="2">网络项目</td>
+												<td>操作</td>
+											</tr>
+											<tr>
+												<td>20.7</td>
+												<td>包月</td>
+												<td>1Mbps</td>
+												<td>元/1Mbps/月</td>
+												<td colspan="2">公网</td>
+												<td><a href="#" onclick="change2Edit(this)">修改</a></td>
+											</tr>
+											<tr>
+												<td>20.7</td>
+												<td>包月</td>
+												<td>1Mbps</td>
+												<td>元/1Mbps/月</td>
+												<td colspan="2">公网</td>
+												<td><a href="#" onclick="change2Edit(this)">修改</a></td>
+											</tr>
+											<tr>
+												<td>20.7</td>
+												<td>包月</td>
+												<td>1Mbps</td>
+												<td>元/1Mbps/月</td>
+												<td colspan="2">公网</td>
+												<td><a href="#" onclick="change2Edit(this)">修改</a></td>
+											</tr>
+										</table>
+
+						  			</div>
+						  			<div class="col-sm-1"></div>
+						  		</div>
+							</div>
+							<div class="tab-pane fade" id="afternoon">
+								<div class="row">
+						  			<div class="col-sm-1"></div>
+						  			<div class="col-sm-10">
+						  				<table class="nist-table table text-center" style="margin-top:20px;">
+											<tr>
+												<td colspan="7"><h4>云平台收费一览表</h4></td>
+											</tr>
+											<tr>
+												<td colspan="7"><h5>计算资源</h5></td>
+											</tr>
+											<tr id="computeResPreNodeAft">
+												<td>计算资源价格（元）</td>
+												<td>基础价格（元）</td>
+												<td colspan="2">CPU(核)</td>
+												<td colspan="2">内存（GB）</td>
+												<td>操作</td>
+											</tr>
+											
+											<tr>
+												<td colspan="7"><h5>网络资源</h5></td>
+											</tr>
+											<tr>
+												<td>基础价格(元)</td>
+												<td>计费方式</td>
+												<td>规格</td>
+												<td>单位</td>
+												<td colspan="2">网络项目</td>
+												<td>操作</td>
+											</tr>
+											<tr>
+												<td>20.7</td>
+												<td>包月</td>
+												<td>1Mbps</td>
+												<td>元/1Mbps/月</td>
+												<td colspan="2">公网</td>
+												<td><a href="#" onclick="change2Edit(this)">修改</a></td>
+											</tr>
+											<tr>
+												<td>20.7</td>
+												<td>包月</td>
+												<td>1Mbps</td>
+												<td>元/1Mbps/月</td>
+												<td colspan="2">公网</td>
+												<td><a href="#" onclick="change2Edit(this)">修改</a></td>
+											</tr>
+											<tr>
+												<td>20.7</td>
+												<td>包月</td>
+												<td>1Mbps</td>
+												<td>元/1Mbps/月</td>
+												<td colspan="2">公网</td>
+												<td><a href="#" onclick="change2Edit(this)">修改</a></td>
+											</tr>
+										</table>
+
+						  			</div>
+						  			<div class="col-sm-1"></div>
+						  		</div>
+							</div>
+							<div class="tab-pane fade" id="night">
+								<div class="row">
+						  			<div class="col-sm-1"></div>
+						  			<div class="col-sm-10">
+						  				<table class="nist-table table text-center" style="margin-top:20px;">
+											<tr>
+												<td colspan="7"><h4>云平台收费一览表</h4></td>
+											</tr>
+											<tr>
+												<td colspan="7"><h5>计算资源</h5></td>
+											</tr>
+											<tr id="computeResPreNodeNig">
+												<td>计算资源价格（元）</td>
+												<td>基础价格（元）</td>
+												<td colspan="2">CPU(核)</td>
+												<td colspan="2">内存（GB）</td>
+												<td>操作</td>
+											</tr>
+											
+											<tr>
+												<td colspan="7"><h5>网络资源</h5></td>
+											</tr>
+											<tr>
+												<td>基础价格(元)</td>
+												<td>计费方式</td>
+												<td>规格</td>
+												<td>单位</td>
+												<td colspan="2">网络项目</td>
+												<td>操作</td>
+											</tr>
+											<tr>
+												<td>20.7</td>
+												<td>包月</td>
+												<td>1Mbps</td>
+												<td>元/1Mbps/月</td>
+												<td colspan="2">公网</td>
+												<td><a href="#" onclick="change2Edit(this)">修改</a></td>
+											</tr>
+											<tr>
+												<td>20.7</td>
+												<td>包月</td>
+												<td>1Mbps</td>
+												<td>元/1Mbps/月</td>
+												<td colspan="2">公网</td>
+												<td><a href="#" onclick="change2Edit(this)">修改</a></td>
+											</tr>
+											<tr>
+												<td>20.7</td>
+												<td>包月</td>
+												<td>1Mbps</td>
+												<td>元/1Mbps/月</td>
+												<td colspan="2">公网</td>
+												<td><a href="#" onclick="change2Edit(this)">修改</a></td>
+											</tr>
+										</table>
+
+						  			</div>
+						  			<div class="col-sm-1"></div>
+						  		</div>
+							</div>
+						</div>
+					  </div><!-- /.panel-body -->
+					</div>
+
+					<!-- <div class="panel panel-info">
 					  <div class="panel-heading">
 						<h3 class="panel-title">更新计费规则</h3>
 					  </div>
 					  <div class="panel-body">
-							<div class="row">
-					  			<div class="col-sm-1"></div>
-					  			<div class="col-sm-10">
-					  				<table class="nist-table table text-center" style="margin-top:20px;">
-										<tr>
-											<td colspan="7"><h4>云平台收费一览表</h4></td>
-										</tr>
-										<tr>
-											<td colspan="7"><h5>权重设置</h5></td>
-										</tr>
-										<tr>
-											<td>计算资源</td>
-											<td>0.5</td>
-											<td colspan="2">网络资源</td>
-											<td colspan="2">1-计算资源</td>
-											<td><a href="#" onclick="changeWeight2Edit(this)">修改</a></td>
-										</tr>
-										<tr>
-											<td colspan="7"><h5>计算资源</h5></td>
-										</tr>
-										<tr>
-											<td>计算资源价格（元）</td>
-											<td>基础价格（元）</td>
-											<td colspan="2">CPU(核)</td>
-											<td colspan="2">内存（GB）</td>
-											<td>操作</td>
-										</tr>
-										<tr>
-											<td>0.1</td>
-											<td>10</td>
-											<td colspan="2">1</td>
-											<td colspan="2">1</td>
-											<td><a href="#" onclick="change2Edit(this)">修改</a></td>
-										</tr>
-										<tr>
-											<td>0.1</td>
-											<td>10</td>
-											<td colspan="2">1</td>
-											<td colspan="2">1</td>
-											<td><a href="#" onclick="change2Edit(this)">修改</a></td>
-										</tr>
-										<tr>
-											<td>0.1</td>
-											<td>10</td>
-											<td colspan="2">1</td>
-											<td colspan="2">1</td>
-											<td><a href="#" onclick="change2Edit(this)">修改</a></td>
-										</tr>
-										<tr>
-											<td>0.1</td>
-											<td>10</td>
-											<td colspan="2">1</td>
-											<td colspan="2">1</td>
-											<td><a href="#" onclick="change2Edit(this)">修改</a></td>
-										</tr>
-										<tr>
-											<td>0.1</td>
-											<td>10</td>
-											<td colspan="2">1</td>
-											<td colspan="2">1</td>
-											<td><a href="#" onclick="change2Edit(this)">修改</a></td>
-										</tr>
-										<tr>
-											<td colspan="7"><h5>网络资源</h5></td>
-										</tr>
-										<tr>
-											<td>基础价格(元)</td>
-											<td>计费方式</td>
-											<td>规格</td>
-											<td>单位</td>
-											<td colspan="2">网络项目</td>
-											<td>操作</td>
-										</tr>
-										<tr>
-											<td>20.7</td>
-											<td>包月</td>
-											<td>1Mbps</td>
-											<td>元/1Mbps/月</td>
-											<td colspan="2">公网</td>
-											<td><a href="#" onclick="change2Edit(this)">修改</a></td>
-										</tr>
-										<tr>
-											<td>20.7</td>
-											<td>包月</td>
-											<td>1Mbps</td>
-											<td>元/1Mbps/月</td>
-											<td colspan="2">公网</td>
-											<td><a href="#" onclick="change2Edit(this)">修改</a></td>
-										</tr>
-										<tr>
-											<td>20.7</td>
-											<td>包月</td>
-											<td>1Mbps</td>
-											<td>元/1Mbps/月</td>
-											<td colspan="2">公网</td>
-											<td><a href="#" onclick="change2Edit(this)">修改</a></td>
-										</tr>
-										<tr>
-											<td colspan="7">总计=(CPU_Price + K*hour)+ (Disk_Price + Q*hour)+(Net_Price & pre*IO)</td>
-										</tr>
-									</table>
+						<div class="row">
+				  			<div class="col-sm-1"></div>
+				  			<div class="col-sm-10">
+				  				<table class="nist-table table text-center" style="margin-top:20px;">
+									<tr>
+										<td colspan="7"><h4>云平台收费一览表</h4></td>
+									</tr>
+									<tr>
+										<td colspan="7"><h5>权重设置</h5></td>
+									</tr>
+									<tr>
+										<td>计算资源</td>
+										<td>0.5</td>
+										<td colspan="2">网络资源</td>
+										<td colspan="2">1-计算资源</td>
+										<td><a href="#" onclick="changeWeight2Edit(this)">修改</a></td>
+									</tr>
+									<tr>
+										<td colspan="7"><h5>计算资源</h5></td>
+									</tr>
+									<tr>
+										<td>计算资源价格（元）</td>
+										<td>基础价格（元）</td>
+										<td colspan="2">CPU(核)</td>
+										<td colspan="2">内存（GB）</td>
+										<td>操作</td>
+									</tr>
+									<tr>
+										<td>0.1</td>
+										<td>10</td>
+										<td colspan="2">1</td>
+										<td colspan="2">1</td>
+										<td><a href="#" onclick="change2Edit(this)">修改</a></td>
+									</tr>
+									<tr>
+										<td>0.1</td>
+										<td>10</td>
+										<td colspan="2">1</td>
+										<td colspan="2">1</td>
+										<td><a href="#" onclick="change2Edit(this)">修改</a></td>
+									</tr>
+									<tr>
+										<td>0.1</td>
+										<td>10</td>
+										<td colspan="2">1</td>
+										<td colspan="2">1</td>
+										<td><a href="#" onclick="change2Edit(this)">修改</a></td>
+									</tr>
+									<tr>
+										<td>0.1</td>
+										<td>10</td>
+										<td colspan="2">1</td>
+										<td colspan="2">1</td>
+										<td><a href="#" onclick="change2Edit(this)">修改</a></td>
+									</tr>
+									<tr>
+										<td>0.1</td>
+										<td>10</td>
+										<td colspan="2">1</td>
+										<td colspan="2">1</td>
+										<td><a href="#" onclick="change2Edit(this)">修改</a></td>
+									</tr>
+									<tr>
+										<td colspan="7"><h5>网络资源</h5></td>
+									</tr>
+									<tr>
+										<td>基础价格(元)</td>
+										<td>计费方式</td>
+										<td>规格</td>
+										<td>单位</td>
+										<td colspan="2">网络项目</td>
+										<td>操作</td>
+									</tr>
+									<tr>
+										<td>20.7</td>
+										<td>包月</td>
+										<td>1Mbps</td>
+										<td>元/1Mbps/月</td>
+										<td colspan="2">公网</td>
+										<td><a href="#" onclick="change2Edit(this)">修改</a></td>
+									</tr>
+									<tr>
+										<td>20.7</td>
+										<td>包月</td>
+										<td>1Mbps</td>
+										<td>元/1Mbps/月</td>
+										<td colspan="2">公网</td>
+										<td><a href="#" onclick="change2Edit(this)">修改</a></td>
+									</tr>
+									<tr>
+										<td>20.7</td>
+										<td>包月</td>
+										<td>1Mbps</td>
+										<td>元/1Mbps/月</td>
+										<td colspan="2">公网</td>
+										<td><a href="#" onclick="change2Edit(this)">修改</a></td>
+									</tr>
+									<tr>
+										<td colspan="7">总计=(CPU_Price + K*hour)+ (Disk_Price + Q*hour)+(Net_Price & pre*IO)</td>
+									</tr>
+								</table>
 
-					  			</div>
-					  			<div class="col-sm-1"></div>
-					  		</div>
+				  			</div>
+				  			<div class="col-sm-1"></div>
+				  		</div>
 							
-					  </div><!-- /.panel-body -->
-					</div>
+					  </div>
+					</div> -->
 				</div><!-- /.container-fluid -->
 				
 				
