@@ -29,3 +29,4 @@ def initDB():
                                nigPrice=po['nigPrice']))
     session.commit()
     session.close()
+    

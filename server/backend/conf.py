@@ -13,4 +13,3 @@ CassandraListenPort = 29953
 dbRoot = os.path.split(os.path.realpath(__file__))[0] + '/db/sqlite.db'
 dbPath = "sqlite:///db/sqlite.db"
 
-backEnd = 'tcp://127.0.0.1:4242'
